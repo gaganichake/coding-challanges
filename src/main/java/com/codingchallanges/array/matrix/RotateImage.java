@@ -1,5 +1,7 @@
 package com.codingchallanges.array.matrix;
 
+import com.codingchallanges.array.Utility;
+
 /*
  * rotateImage
  *
@@ -27,7 +29,7 @@ package com.codingchallanges.array.matrix;
  */
 public class RotateImage {
 
-	int[][] rotateImage(int[][] a) {
+	static int[][] rotateImage(int[][] a) {
 
 	    int n = a.length;
 
@@ -48,6 +50,11 @@ public class RotateImage {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
+		int[][] a = {{1,2,3},
+					{4,5,6},
+  					{7,8,9}};
+		System.out.println(Utility.printArray(rotateImage(a)));
 
 	}
 

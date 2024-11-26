@@ -9,11 +9,11 @@ import java.util.Map;
  * https://www.hackerrank.com/challenges/icecream-parlor/problem
  * <p>
  * Two friends like to pool their money and go to the ice cream parlor. They always choose two distinct flavors and they spend all of their money.
- * Given a list of prices for the flavors of ice cream, select the two that will cost all of the money they have.
+ * Given a list of prices for the flavors of ice cream, select the two that will cost all the money they have.
  * <p>
  * Returns the indices of the prices of the two flavors they buy, sorted ascending
  * <p>
- * Example. m = 6, cost = [1, 2, 3, 4, 5
+ * Example. m = 6, cost = [1, 2, 3, 4, 5]
  * The two flavors that cost  and  meet the criteria. Using -based indexing, they are at indices  1 and 4 .]
  * <p>
  * https://www.youtube.com/watch?v=Ifwf3DBN1sc
@@ -78,9 +78,11 @@ public class IceCreamParlor {
 
             for (int j = 0; j < menu.length; j++) {
 
-                if (menu[i] + menu[j] == m && i != j) {//If there are two ice creams with the same price
+                if (menu[i] + menu[j] == m && i != j) {//They always choose two distinct flavors
 
-                    return new int[]{Math.min(i, j), Math.max(i, j)};
+                    int[] result = {i , j};
+                    Arrays.sort(result);
+                    return result;
                 }
             }
         }
@@ -89,104 +91,41 @@ public class IceCreamParlor {
     }
 
     /*
-     * Implement using Hash Map and LinkedList
+     * BEST SOLUTION
+     * Implement using Hash Map
      */
     public static int[] iceCreamParlor2(int[] menu, int m) {
 
-        int[] buyThis = new int[2];
+        Map<Integer, Integer> map = new HashMap<>();
 
-        Map<Integer, LinkedList<Integer>> priceMap = createMap(menu, m);
+        for(int i = 0; i < menu.length; i++){
+            if(menu[i] < m) map.put(menu[i],i); //Price of each ice cream must less than total money in pocket.
+        }
 
         int iceCream2 = 0;
 
-        for (Integer iceCream1 : priceMap.keySet()) {
+        for (Integer iceCream1 : map.keySet()) {
 
-            if (priceMap.containsKey(iceCream2)) {
+            iceCream2 = m - iceCream1;
 
-                buyThis[0] = priceMap.get(iceCream1).getFirst();
+            if(map.containsKey(iceCream2)){
 
-                if (iceCream1 == iceCream2) {//If there are two ice creams with the same price
-                    buyThis[1] = priceMap.get(iceCream2).getLast();//We just don't want to repeat the first one.
-                } else {
-                    buyThis[1] = priceMap.get(iceCream2).getFirst();
-                }
+                int[] result = new int[]{map.get(iceCream1), map.get(iceCream2)};
+                Arrays.sort(result);
+                return result;
             }
         }
 
-        return buyThis;
-    }
-
-    private static Map<Integer, LinkedList<Integer>> createMap(int[] menu, int money) {
-
-        Map<Integer, LinkedList<Integer>> map = new HashMap<>();//Price -> Indices
-        int price;
-
-        for (int i = 0; i < menu.length; i++) {
-
-            price = menu[i];
-
-            // Since we need to buy two ice creams filter out the one that we cannot buy
-            if (price >= money) continue;
-
-            if (!map.containsKey(price)) {
-                map.put(price, new LinkedList<>());
-            }
-            map.get(price).add(i);
-
-        }
-        return map;
-    }
-
-    /*
-     * Using sorting and searching
-     */
-    public static int[] iceCreamParlor3(int[] menu, int m) {
-
-        int[] sortedMenu = menu.clone();
-
-        Arrays.sort(sortedMenu);
-
-        for (int i = 0; i < sortedMenu.length; i++) {
-
-            int complement = m - sortedMenu[i];
-
-            int location = Arrays.binarySearch(sortedMenu, i + 1, sortedMenu.length, complement);
-
-            if (location >= 0 && location < sortedMenu.length && sortedMenu[location] == complement) {
-                return getIndicesForValue(menu, sortedMenu[i], complement);
-            }
-        }
-        return null;
-    }
-
-
-    private static int[] getIndicesForValue(int[] menu, int value1, int value2) {
-        int index1 = indexOf(menu, value1, -1);
-        int index2 = indexOf(menu, value2, index1);
-
-        return new int[]{Math.min(index1, index2), Math.max(index1, index2)};
-    }
-
-    private static int indexOf(int[] menu, int value, int excludeThis) {
-
-        for (int i = 0; i < menu.length; i++) {
-
-            if (menu[i] == value && i != excludeThis) {
-                return i;
-            }
-        }
-
-        return -1;
+        return new int[2];
     }
 
     public static void main(String[] args) {
 
-//		int[] menu = { 6, 1, 7, 4, 2 };
-        int[] menu = {1, 5, 4, 5, 2};
-
+		int[] menu = { 6, 1, 7, 4, 2 };
+//        int[] menu = {1, 5, 4, 5, 2};
 
         System.out.println(Arrays.toString(iceCreamParlor(menu, 10)));
         System.out.println(Arrays.toString(iceCreamParlor2(menu, 10)));
-        System.out.println(Arrays.toString(iceCreamParlor3(menu, 10)));
+
     }
 }

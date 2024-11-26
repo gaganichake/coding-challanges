@@ -1,5 +1,7 @@
 package com.codingchallanges.array.math;
 
+import java.util.Arrays;
+
 /*
  * arrayMaxConsecutiveSum2
  *
@@ -21,26 +23,33 @@ public class ArrayMaxConsecutiveSum2 {
 		int maxSum = Integer.MIN_VALUE;
 		int sum;
 		int[] prefixSum = new int[inputArray.length + 1];
+		int maxConsecutiveSum = 0;
+		int nextSum = 0;
 
 		for (int i = 0; i < inputArray.length; i++) {
 
-			prefixSum[i + 1] = prefixSum[i] + inputArray[i];
-		}
+			nextSum = prefixSum[i] + inputArray[i];
 
-		for (int i = 0; i < inputArray.length; i++) {
-
-			for (int j = i; j < inputArray.length; j++) {
-
-				// sum = sum(i, j, inputArray);//This causes more execution time.
-
-				sum = prefixSum[j + 1] - prefixSum[i + 1 - 1];//Using prefix sum technique
-
-				if (sum > maxSum) {
-					maxSum = sum;
-				}
+			if(nextSum > prefixSum[i]){
+				prefixSum[i + 1] = nextSum;
 			}
+			maxConsecutiveSum = Math.max(maxConsecutiveSum, prefixSum[i + 1]);
 		}
-		return maxSum;
+		System.out.println(Arrays.toString(prefixSum));
+//		for (int i = 0; i < inputArray.length; i++) {
+//
+//			for (int j = i; j < inputArray.length; j++) {
+//
+//				// sum = sum(i, j, inputArray);//This causes more execution time.
+//
+//				sum = prefixSum[j + 1] - prefixSum[i + 1 - 1];//Using prefix sum technique
+//
+//				if (sum > maxSum) {
+//					maxSum = sum;
+//				}
+//			}
+//		}
+		return maxConsecutiveSum;
 	}
 
 	private int sum(int i, int j, int[] inputArray) {

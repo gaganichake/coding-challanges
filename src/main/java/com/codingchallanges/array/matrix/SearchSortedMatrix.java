@@ -15,21 +15,17 @@ public class SearchSortedMatrix {
 	 */
 	public static int[] searchSortedMatrixBinarySearch(int[][] matrix, int key) {
 
-		int[] result = {-1, -1};
 		int rowIndex = -1;
 		int colIndex;
 
 		for(int[] a : matrix) {
-
 			rowIndex++;
 			colIndex = Arrays.binarySearch(a, key);
-
 			if(colIndex > -1) {
-				result[0] = rowIndex;
-				result[1] = colIndex;
+				return new int[]{rowIndex, colIndex};
 			}
 		}
-		return result;
+		return new int[]{-1, -1};
 	}
 
 	/*
@@ -74,7 +70,7 @@ public class SearchSortedMatrix {
 	 *
 	 * Apply binary search row wise on the sub-matrix.
 	 */
-		//TODO
+	//TODO
 
 
 	public static void main(String[] args) {

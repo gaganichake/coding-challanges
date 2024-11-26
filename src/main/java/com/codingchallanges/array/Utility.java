@@ -20,20 +20,38 @@ public class Utility {
 		array[j] = temp;
 	}
 
-	public static String printTwoDArray(int[][] array) {
+	public static String printArray(int[][] array) {
 
 		StringBuilder str = new StringBuilder();
 
 		for (int[] ints : array) {
 
-			StringBuilder append = str.append("|");
+			str.append("[");
 
 			for (int anInt : ints) {
 
-				str.append(anInt).append("|");
+				str.append(anInt).append(",");
 
 			}
-			str.append("\n");
+			str.deleteCharAt(str.lastIndexOf(",")).append("]\n");
+		}
+		return str.toString();
+	}
+
+	public static String printArray(String[][] array) {
+
+		StringBuilder str = new StringBuilder();
+
+		for (String[] ints : array) {
+
+			str.append("[");
+
+			for (String anInt : ints) {
+
+				str.append(anInt).append(",");
+
+			}
+			str.deleteCharAt(str.lastIndexOf(",")).append("]\n");
 		}
 		return str.toString();
 	}

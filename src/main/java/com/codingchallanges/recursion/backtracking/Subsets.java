@@ -30,7 +30,7 @@ public class Subsets {
 
 		// Add a copy of newSubset to the output list. At the very first call newSubset would be just empty - [].
 		output.add(new ArrayList<>(newSubset));
-//		System.out.println("newSubset: " + newSubset);
+		System.out.println("newSubset: " + newSubset);
 
 		for (int i = start; i < nums.length; i++) {
 
@@ -49,7 +49,7 @@ public class Subsets {
 
 	public static void main(String[] args) {
 
-		int[] nums = { 1, 2, 3, 4};
+		int[] nums = {1, 2, 3, 4};
 
 		System.out.println(subsets(nums));
 	}

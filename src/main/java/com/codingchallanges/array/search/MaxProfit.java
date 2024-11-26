@@ -21,7 +21,7 @@ package com.codingchallanges.array.search;
  */
 public class MaxProfit {
 
-	// Approach 1: Brute Force
+	// Approach 1: Brute Force (Two pass). Time: O(n*n)
     public static int maxProfit(int[] prices) {
 
         int maxprofit = 0;
@@ -39,7 +39,7 @@ public class MaxProfit {
         return maxprofit;
     }
 
-	// Approach 2: One Pass
+	// Approach 2: One Pass.  Time: O(n)
     public static int maxProfit2(int[] prices) {
 
         int minprice = Integer.MAX_VALUE;
@@ -49,16 +49,36 @@ public class MaxProfit {
 
             if (price < minprice)
                 minprice = price;//tracking smallest element
-            else if (price - minprice > maxprofit)
-                maxprofit = price - minprice;//tracking max profit
+            else {
+                int profit = price - minprice;
+                if (profit > maxprofit) maxprofit = profit;//tracking max profit
+            }
         }
         return maxprofit;
+    }
+
+    // Approach 3: One Pass.  Time: O(n)
+    public static int maxProfit3(int[] prices) {
+
+        int buyAt = Integer.MAX_VALUE;
+        int sellAt = 0;
+
+        for(int price : prices) {
+
+            if(price < buyAt){
+                buyAt = price; // When lower buying price found
+                sellAt = price; // rest to current price
+            }
+            if(price > sellAt) sellAt = price; // track the largest selling price
+        }
+
+        return sellAt - buyAt < 0 ? 0 : sellAt - buyAt;
     }
 
 	public static void main(String[] args) {
 //		int[] prices = {7,1,5,3,6,4};
 		int[] prices = {7,6,4,3,1};
-		System.out.println(maxProfit(prices));
+		System.out.println(maxProfit2(prices));
 
 	}
 

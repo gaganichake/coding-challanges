@@ -1,6 +1,7 @@
 package com.codingchallanges.recursion.backtracking;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /*
  * Google technical interview (II) Sep/17/2021
@@ -12,7 +13,7 @@ import java.util.*;
  * 	Return the shortest substring (or length) that contains all the characters in the set.
  *
  * * * * * * * * * * * * *
- * Grainger coding challange
+ * Grainger coding challenge
  *
  * Given two Strings "hackerearth" and "are" find the shorted substring in "hackerearth" which
  * has all characters in "are".
@@ -35,6 +36,9 @@ import java.util.*;
  * It's guaranteed that the answer exists. If there are several answers, return the one
  * which starts from the smallest index.
  *
+ * Example
+ * For s = "adobecodebanc" and t = "abc", the output should be solution(s, t) = "banc"
+ *
  */
 public class ShortestSubstring {
 
@@ -50,6 +54,9 @@ public class ShortestSubstring {
             for (int j = i + minSize; j <= str.length(); j++) {
 
                 substring = str.substring(i, j);
+
+                // Optimization: ignore the substring that are shorter than t
+                if(substring.length() < set.size()) continue;
 
                 if (hasAllChar(substring, set)) {
 
@@ -70,23 +77,27 @@ public class ShortestSubstring {
 
         shortestSubstringBacktracking(str, set, new StringBuffer(), output, 0);
 
-        //System.out.println(output);
+//        String shortedSubstring = "";
+//        for (String substring : output) {
+//
+//            if (shortedSubstring.isEmpty() || shortedSubstring.length() > substring.length()) {
+//                shortedSubstring = substring;
+//            }
+//        }
+//        return shortedSubstring;
 
-        String shortedSubstring = "";
+        // Optimization: Use sorting with custom Comparator
+        output.sort(Comparator.comparingInt(String::length));
+//        System.out.println(output);
 
-        for (String substring : output) {
-
-            if (shortedSubstring.isEmpty() || shortedSubstring.length() > substring.length()) {
-                shortedSubstring = substring;
-            }
-        }
-
-        return shortedSubstring;
+        return output.isEmpty() ? "" : output.get(0);
     }
 
     private static void shortestSubstringBacktracking(String str, Set<Character> set, StringBuffer substring, List<String> output, int start) {
 
-        if (str.contains(substring.toString()) && hasAllChar(substring.toString(), set)) {
+        // System.out.println(substring);
+        // Optimization: ignore the substring that are shorter than t
+        if (str.contains(substring.toString()) && substring.length() >= set.size() && hasAllChar(substring.toString(), set)) {
 
             output.add(substring.toString());
 
@@ -118,9 +129,9 @@ public class ShortestSubstring {
 
     //CodeSingle variant of the same problem
     public static String minSubstringWithAllChars(String s, String t) {
-
+        
         String substring;
-        String shortedSubstring = "";
+        String smallestSubstring = "";
         int minSize = t.length();//Substring shorter than length of t are not qualified
 
         for (int i = 0; i < s.length(); i++) {
@@ -129,22 +140,23 @@ public class ShortestSubstring {
 
                 substring = s.substring(i, j);
 
+                // Optimization: ignore the substring that are shorter than t
+                if(substring.length() < t.length()) continue;
+
                 if (hasAllChar(substring, t)) {
 
-                    if (shortedSubstring.isEmpty() || shortedSubstring.length() > substring.length()) {
-                        shortedSubstring = substring;
+                    if (smallestSubstring.isEmpty() || smallestSubstring.length() > substring.length()) {
+                        smallestSubstring = substring;
                     }
                 }
             }
         }
-        return shortedSubstring;
+        return smallestSubstring;
     }
 
     private static boolean hasAllChar(String substring, String t) {
 
-        char[] charArr = t.toCharArray();
-
-        for (char c : charArr) {
+        for (char c : t.toCharArray()) {
 
             if (!substring.contains(c + "")) {
 
@@ -156,15 +168,16 @@ public class ShortestSubstring {
 
     public static void main(String[] args) {
 
-//		String str =  "afopgngfknfngoxbg";
-        String str = "2000702007";
-//		Character[] c = {'f', 'g'};
-        Character[] c = {'2', '7'};
+		String str =  "afopgngfknfngoxbg";
+        Character[] c = {'f', 'g'};
+
+//      String str = "2000702007";
+//      Character[] c = {'2', '7'};
 
         Set<Character> set = new HashSet<>(Arrays.asList(c));
 
         System.out.println("shortedSubstring = " + shortestSubstring(str, set));
         System.out.println("shortedSubstringBacktracking = " + shortestSubstringBacktracking(str, set));
-        System.out.println("minSubstringWithAllChars = " + minSubstringWithAllChars(str, "27"));
+        System.out.println("minSubstringWithAllChars = " + minSubstringWithAllChars(str, "fg"));
     }
 }

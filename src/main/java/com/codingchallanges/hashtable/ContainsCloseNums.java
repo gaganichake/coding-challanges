@@ -39,7 +39,7 @@ public class ContainsCloseNums {
 //	 }
 
 	// All tests passed
-	boolean containsCloseNums(int[] nums, int k) {
+	static boolean containsCloseNums(int[] nums, int k) {
 
 		if (nums.length == 0)
 			return false;
@@ -51,7 +51,7 @@ public class ContainsCloseNums {
 			if (map.containsKey(nums[i])) {
 
 				if (Math.abs(map.get(nums[i]) - i) <= k)
-					return true;// if least once pair exists then return the result. See Test 8
+					return true;// if at least once pair exists then return the result. See Test 8
 			}
 			map.put(nums[i], i);// Do everytime, do not put in else condition. See Test 8
 		}
@@ -59,8 +59,15 @@ public class ContainsCloseNums {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		int[] nums = {0, 1, 2, 3, 5, 2};
+		int k = 3;
+
+		System.out.println(containsCloseNums(nums, k)); // Expected true
+
+		nums = new int[]{0, 1, 2, 3, 5, 2};
+		k = 2;
+		System.out.println(containsCloseNums(nums, k)); // Expected false
 	}
 
 }

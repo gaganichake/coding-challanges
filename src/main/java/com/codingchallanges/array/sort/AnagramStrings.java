@@ -35,7 +35,7 @@ public class AnagramStrings {
 		if(listS.size() != listT.size()) return false;
 
 		for(int i = 0; i < listS.size(); i++){
-			if(!listS.get(i).equals(listT.get(i))) return false;
+			if(!listS.get(i).equals(listT.get(i))) return false;// Exist early as soon as the mismatch found
 		}
 
 		return true;

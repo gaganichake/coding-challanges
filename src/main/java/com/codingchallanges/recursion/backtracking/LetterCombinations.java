@@ -49,12 +49,12 @@ public class LetterCombinations {
 
 			for (int i = 0; i < letters.length(); i++) {
 
-				char letter = letters.charAt(i);
+				newCombination += letters.charAt(i);
 //				System.out.println("add (" + letter + "): " + newCombination + letter);
 
 				// append the current letter to the combination
 				// and proceed to the next digits
-				letterCombinations(digits.substring(1), newCombination + letter, output);//remaining digits
+				letterCombinations(digits.substring(1), newCombination, output);//remaining digits
 //				System.out.println("return: " + newCombination);
 			}
 		}

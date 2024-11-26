@@ -56,13 +56,11 @@ public class DesignerPDFViewer {
 
 		// Option: 2
 		// note that characters can be treated as numbers. 'b' -'a' = 1.
-		// To find height of 'g', use this smart way. Example: int height_of_g = h['g' - 'a']; = 6
+		// To find height of 'g', use this smart way. Example: int height_of_g = h['g' - 'a']; = h[6]
 		for (int i = 0; i < word.length(); i++) {
 
 			maxH = Math.max(maxH, h[word.charAt(i) - 'a']);// Find height of the tallest letter
-
 		}
-
 		return maxH * word.length();
 	}
 

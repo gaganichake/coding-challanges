@@ -16,17 +16,13 @@ public class BoundedRatio {
 
 	static boolean[] boundedRatio(int[] a, int l, int r) {
 
-		boolean[] b = new boolean[a.length];//default value is false
+		boolean[] b = new boolean[a.length]; //default value is false
 		int x;
 
-		for(int i = 0; i < a.length; i++) {
-
-			x = a[i] / (i+1);
-
+		for(int i = 0; i < a.length; i++){
+			x = a[i] / (i + 1);
 			//Only whole number would qualify
-			if(a[i] % (i+1) == 0 && x >= l && x <= r) {
-				b[i] = true;
-			}
+			b[i] = a[i] % (i + 1) == 0 && l <= x && x <= r;
 		}
 		return b;
 	}

@@ -12,6 +12,7 @@ import java.util.Arrays;
  */
 public class MoveZero {
 
+    // tips: do not push the zero's to the end. Rather bring non-zero numbers to the beginning.
     public static void moveZeroes(int[] nums) {
 
         int firstIndexOfZero = 0;
@@ -25,6 +26,7 @@ public class MoveZero {
                 nums[i] = temp;
 
                 firstIndexOfZero++;
+                System.out.println("process : " + Arrays.toString(nums));
                 }
             }
         }
@@ -51,7 +53,8 @@ public class MoveZero {
 	public static void main(String[] args) {
 
 //		int[] array = {0,1,0,3,12};
-		int[] array = {2,0,4,5,0,1};
+//		int[] array = {2,0,4,5,0,1};
+      int[] array = {0,0,7,0,0,9};
 
 		System.out.println("Before: " + Arrays.toString(array));
 

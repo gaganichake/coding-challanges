@@ -1,8 +1,9 @@
-package com.codingchallanges.tree.fb;
+package com.codingchallanges.tree.binarytree;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+// Facebook
 public class Qheap1 {
 
     public static void main(String[] args) {

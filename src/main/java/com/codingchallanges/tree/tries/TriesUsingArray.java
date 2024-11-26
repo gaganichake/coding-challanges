@@ -5,11 +5,11 @@ public class TriesUsingArray {
     // Alphabet size (# of symbols)
     static final int ALPHABET_SIZE = 26;
 
-    TriesUsingArray[] children = new TriesUsingArray[ALPHABET_SIZE];
+    private TriesUsingArray[] children = new TriesUsingArray[ALPHABET_SIZE];
 
     // isEndOfWord is true if the node represents
     // end of a word
-    boolean isEndOfWord;
+    private boolean isEndOfWord;
 
     public boolean hasChildren() {
         for (int i = 0; i < ALPHABET_SIZE; i++) {

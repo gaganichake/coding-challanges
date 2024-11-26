@@ -1,5 +1,6 @@
 package com.codingchallanges.array.search;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -58,14 +59,14 @@ public class FindOddOccurrances {
 				result.add(current);
 			}
 		}
-
 		return result;
 	}
 
 	public static void main(String[] arg) {
 
-		int[] array = { 1, 3, 2, 3, 2, 3 };
+		int[] array = {1, 3, 2, 3, 2, 3};
 
 		System.out.println("Following number were found odd times: " + findOddOccurrence2(array));
 	}
+
 }

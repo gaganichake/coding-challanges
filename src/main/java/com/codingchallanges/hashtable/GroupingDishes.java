@@ -1,6 +1,9 @@
 package com.codingchallanges.hashtable;
 
+import com.codingchallanges.array.Utility;
+
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.lang.System.arraycopy;
 
@@ -71,7 +74,39 @@ import static java.lang.System.arraycopy;
  * */
 public class GroupingDishes {
 
-	String[][] solution(String[][] dishes) {
+	// Incomplete
+	static String[][] solution2(String[][] dishes) {
+
+		SortedMap<String, LinkedList<String>> map = new TreeMap<>();
+
+		for(String[] menu : dishes){
+
+			String ingredient;
+			String dish = menu[0];
+			LinkedList<String> dishList;
+
+			for(int i = 1; i < menu.length; i++){
+
+				ingredient = menu[i];
+
+				dishList = map.getOrDefault(ingredient, new LinkedList<>());
+				dishList.add(dish);
+				map.put(ingredient, dishList);
+			}
+		}
+
+		for(String ingredient : map.keySet()){
+			LinkedList<String> dishList = map.get(ingredient);
+			Collections.sort(dishList);
+			dishList.addFirst(ingredient);
+		}
+
+		List<String[]> listOfArray = map.values().stream().map(list -> list.toArray(new String[list.size()])).collect(Collectors.toList());
+
+		return listOfArray.toArray(new String[listOfArray.size()][]);
+	}
+
+	static String[][] solution(String[][] dishes) {
 
 		SortedMap<String, List<String>> map = new TreeMap<>();
 
@@ -86,23 +121,21 @@ public class GroupingDishes {
 				dish = menu[0];
 				ingredient = menu[i];
 
-				if(!map.containsKey(ingredient)){
-					map.put(ingredient, new ArrayList<>());
-				}
-
-				dishList =  map.get(ingredient);
+				dishList = map.getOrDefault(ingredient, new ArrayList<>());
 				dishList.add(dish);
+				map.put(ingredient, dishList);
 			}
 		}
 
-		LinkedList<String[]> linkedList = convertToLinkedList(map);
+		List<String[]> list = convertToList(map);
 
-		return linkedList.toArray(new String[linkedList.size()][]);
+		return list.toArray(new String[list.size()][]);
 	}
 
-	private LinkedList<String[]> convertToLinkedList(SortedMap<String, List<String>> map) {
 
-		LinkedList<String[]> linkedList = new LinkedList<>();
+	private static List<String[]> convertToList(SortedMap<String, List<String>> map) {
+
+		List<String[]> list = new ArrayList<>();
 
 		for(String ingredient : map.keySet()){
 
@@ -113,17 +146,33 @@ public class GroupingDishes {
 			if(dishList.size() > 1){
 				String[] array = new String[dishList.size()+1];
 				array[0] = ingredient;
-				arraycopy(dishList.toArray(new String[0]), 0, array, 1, dishList.size());
-				linkedList.add(array);
+				System.arraycopy(dishList.toArray(), 0, array, 1, dishList.size());
+				list.add(array);
 			}
 		}
-		return linkedList;
+		return list;
 	}
 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		String[][] dishes_1 = {{"Salad", "Tomato", "Cucumber", "Salad", "Sauce"},
+				{"Pizza", "Tomato", "Sausage", "Sauce", "Dough"},
+				{"Quesadilla", "Chicken", "Cheese", "Sauce"},
+				{"Sandwich", "Salad", "Bread", "Tomato", "Cheese"}};
+
+
+		System.out.println(Utility.printArray(solution(dishes_1)));
+
+
+		String[][] dishes_2 = {{"Pasta", "Tomato Sauce", "Onions", "Garlic"},
+				{"Chicken Curry", "Chicken", "Curry Sauce"},
+				{"Fried Rice", "Rice", "Onions", "Nuts"},
+				{"Salad", "Spinach", "Nuts"},
+				{"Sandwich", "Cheese", "Bread"},
+				{"Quesadilla", "Chicken", "Cheese"}};
+
+		System.out.println(Utility.printArray(solution(dishes_2)));
 	}
 
 }

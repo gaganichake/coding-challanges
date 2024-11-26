@@ -1,5 +1,7 @@
 package com.codingchallanges.tree.binarytree;
 
+import com.codingchallanges.tree.binarysearchtree.IsBinarySearchTree;
+
 import java.util.List;
 import java.util.function.*;
 
@@ -131,7 +133,8 @@ public class TreeNode<T> {
 		t.right = new TreeNode<>(2);
 //		t.right.right = new TreeNode<>(3);
 //		t.right.right.right = new TreeNode<>(4);
-		PrintLevelOrder.printLevelOrder(t);
+		TraversalLevelOrder<Integer> printLevelOrder =  new TraversalLevelOrder<>();
+		printLevelOrder.printLevelOrder(t);
 		System.out.println();
 		System.out.println("Is Balanced = " + IsBalancedTree.isBalanced(t));
 		
@@ -167,13 +170,13 @@ public class TreeNode<T> {
 		else
 			System.out.println("Invalid input NULL");
 		
-		List<Integer> output = TraversalTreeLevelOrder.traverseLevelOrder(binaryTree);
+		List<Integer> output = TraversalLevelOrder.traverseLevelOrder(binaryTree);
 		System.out.println("Level order" + output);
 
 		System.out.println("Insert 8 at Level order");
 		InsertInLevelOrder.insertInLevelOrder(binaryTree, 8);
 
-		output = TraversalTreeLevelOrder.traverseLevelOrder(binaryTree);
+		output = TraversalLevelOrder.traverseLevelOrder(binaryTree);
 		System.out.println("Level order" + output);
 		
 		output = TraverseInOrder.inorderTraversal(binaryTree);
@@ -185,13 +188,13 @@ public class TreeNode<T> {
 		output = TraversePreOrder.preorderTraversal(binaryTree);
 		System.out.println("Preorder" + output);
 		
-		output = TraversalTreeLevelOrder.traverseLevelOrder(binaryTree);
+		output = TraversalLevelOrder.traverseLevelOrder(binaryTree);
 		System.out.println("Level order" + output);
 		
 		System.out.println("Level order with line break");
-		PrintLevelOrder.printLevelOrder(binaryTree);
+		printLevelOrder.printLevelOrder(t);
 		
-		output = TraversalTreeLevelOrder.traverseLevelOrder(binaryTree);
+		output = TraversalLevelOrder.traverseLevelOrder(binaryTree);
 		System.out.println("\nBefore (Level order) " + output);
 
 		int deleteValue = 3;
@@ -200,7 +203,7 @@ public class TreeNode<T> {
 
 		System.out.println("Node " + deleteValue + " deleted ? : " + deleted);
 
-		output = TraversalTreeLevelOrder.traverseLevelOrder(binaryTree);
+		output = TraversalLevelOrder.traverseLevelOrder(binaryTree);
 		System.out.println("After (Level order) " + output);
 		
 		TreeNode<Integer> t1 = new TreeNode<>(0);

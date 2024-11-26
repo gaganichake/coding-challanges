@@ -29,26 +29,31 @@ public class FindProfession {
 	//Best solution
 	//Credit: https://github.com/edyluisrey/Codefights-Algorithms
 	public static String findProfession(int level, int pos) {
-		
+
 		if(level == 1) return "Engineer";
-		
+
+		// You can't determine the child without knowing the parent
+		// Find digree of the parent node
+		// Position of a parent = (postion of child + 1)/2
 		String degree = findProfession(level - 1, (pos+1)/2);
-		
-        if(degree.equals("Engineer")) {
-		
-            if(pos % 2 == 0) {
-            	degree = "Doctor";
-            } else {
-            	degree = "Engineer";
-            }
-        } else {
-            if(pos % 2 == 0) {
-            	degree = "Engineer";
-            } else {
-            	degree = "Doctor";
-            }
-        }
-        return degree;
+
+		// Position at each evel begins with 1
+		// Since first child is always at odd position
+		// and second child is always at even position
+		if(degree.equals("Engineer")) {
+			if(pos % 2 != 0) {
+				degree = "Engineer"; // Engineer's first child is Engineer
+			} else {
+				degree = "Doctor";
+			}
+		} else { // Degree is Doctor
+			if(pos % 2 != 0) {
+				degree = "Doctor"; // Doctor's first child is Doctor
+			} else {
+				degree = "Engineer";
+			}
+		}
+		return degree;
 	}
 	
 	//Alternative solutions: create the whole tree and find profession. Not an optimal approach.
@@ -75,7 +80,7 @@ public class FindProfession {
 	 * Breadth First Search
 	 * 
 	 * This solution results in correct answer but causes execution time error 
-	 * when level and position are larger in number
+	 * when level and position are larger
 	 */
 	public static String findProfessionBFS(int level, int pos) {
 
@@ -126,7 +131,7 @@ public class FindProfession {
 	/* 
 	 * Depth First Search
 	 * This solution also works but, again, it causes execution time error 
-	 * when level and position are larger in number
+	 * when level and position are larger
 	 */
 	public static String findProfessionDFS(int level, int pos) {
 		

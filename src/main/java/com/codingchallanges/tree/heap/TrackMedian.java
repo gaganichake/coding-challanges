@@ -6,7 +6,7 @@ import java.util.*;
  * https://www.hackerrank.com/challenges/find-the-running-median/problem
  * CTCI: Number are randomly generated and stored into an (expanding) array. How would you keep track of the median?
  * 
- * You can implement this algorithms using two approaches
+ * You can implement this algorithm using two approaches
  * Approach 1: Sort the array first then find median
  * Approach 2: Using MinHeap & MaxHeap
  */
@@ -70,7 +70,8 @@ public class TrackMedian {
 		} else if (minHeap.size() < maxHeap.size()) {
 			median = maxHeap.peek();
 		} else {
-			median = (Optional.ofNullable(maxHeap.peek()).orElse(0) + Optional.ofNullable(minHeap.peek()).orElse(0)) / 2.0; // Calculate mean of two
+			median = (Optional.ofNullable(maxHeap.peek()).orElse(0)
+					+ Optional.ofNullable(minHeap.peek()).orElse(0)) / 2.0; // Calculate mean of two
 		}
 
 		return median;

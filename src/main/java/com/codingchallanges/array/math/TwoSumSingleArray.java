@@ -10,7 +10,7 @@ import java.util.Map;
  * Compare with https://www.hackerrank.com/challenges/icecream-parlor/problem
  *
  * Asked in Amazon interview - 08/23/2021
- * Given an array of integers and a integer number. Find indices of numbers in the array
+ * Given an array of integers and an integer number. Find indices of numbers in the array
  * whose sum is equal to the integer number in input.
  *
  * Questions on Time complexity, improvements, revised Time complexity after improvement.
@@ -33,7 +33,7 @@ public class TwoSumSingleArray {
     }
 
     // Approach 2: Two-pass Hash Table : O(n + n) = O(n)
-    public int[] twoSum(int target, int[] nums) {
+    public static int[] twoSumTwoPass(int[] nums, int target) {
 
     	// Map will also remove duplicate numbers
         Map<Integer, Integer> map = new HashMap<>();
@@ -52,7 +52,7 @@ public class TwoSumSingleArray {
     }
 
     // Approach 3: One-pass Hash Table : O(n)
-    public static int[] twoSumUsingMap(int[] nums, int target) {
+    public static int[] twoSumOnePass(int[] nums, int target) {
 
 
         Map<Integer, Integer> map = new HashMap<>();
@@ -75,7 +75,7 @@ public class TwoSumSingleArray {
 	public static void main(String[] args) {
 
 		//Ask the interviewer if all the numbers are unique?
-		//If the array included duplicate numbers, can we only return index of any occurrence.?
+		//If the array included duplicate numbers, can we only return index of any occurrence?
 		//Should I need to find indices of all possible combinations?
 
 //		int[] arr = { 6, 1, 7, 4, 2 };
@@ -83,8 +83,8 @@ public class TwoSumSingleArray {
 
 
 		System.out.println(Arrays.toString(twoSum(arr, 10)));
-		System.out.println(Arrays.toString(twoSumUsingMap(arr, 10)));
-//		System.out.println(Arrays.toString(twoSumUsingMap(arr, 10)));
+		System.out.println(Arrays.toString(twoSumTwoPass(arr, 10)));
+		System.out.println(Arrays.toString(twoSumOnePass(arr, 10)));
 	}
 
 }

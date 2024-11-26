@@ -1,5 +1,6 @@
 package com.codingchallanges.array.math;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /*
@@ -14,6 +15,7 @@ import java.util.HashMap;
 public class SubarraySum {
 
 	/*
+	 * Brute force approach
 	 * Time complexity: O(n * n)
 	 * Space complexity: O(1)
 	 */
@@ -68,13 +70,14 @@ public class SubarraySum {
 //       }
 
 	/*
+	 * Best performance
 	 * Time complexity: O(n)
 	 * Space complexity: O(n)
 	 */
     public static int subarraySum2(int[] nums, int k) {
 
         int count = 0, sum = 0;
-        HashMap <Integer, Integer > map = new HashMap<>();// Sum -> Count
+        HashMap <Integer, Integer > map = new HashMap<>();// sum -> Count
 
         map.put(0, 1);
 
@@ -86,6 +89,7 @@ public class SubarraySum {
 
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
+        System.out.println("map = " + map);
         return count;
     }
 
@@ -104,36 +108,37 @@ public class SubarraySum {
 			}
 		}
 
-        for (int value : prefixSum) {
+        for(int i = 1; i < prefixSum.length; i++){
 
-            for (int j = 1; j < prefixSum.length; j++) {
-
-                if (value - prefixSum[j] == k) {
-                    count++;
-                }
+            int lastElement = prefixSum[prefixSum.length - 1];
+            if(lastElement - prefixSum[i] == k) {
+                count++;
             }
         }
-
+        System.out.println("prefixSum = " + Arrays.toString(prefixSum));
         return count;
     }
 
 	public static void main(String[] args) {
 
-//		int[] nums = {1, 1, 1, 1, 1};
-//		int k = 2;
-
 //		int[] nums = {1, 1, 1};
 //		int k = 2;
+
+// 		int[] nums = {1, 2, 3};
+//		int k = 3;
+
+        int[] nums = {1, 2, 1, 2, 1};
+        int k = 3;
 
 //		int[] nums = {28,54,7,-70,22,65,-6};
 //		int k = 100;
 
-		int[] nums = {0,0,0,0,0,0,0,0,0,0};
-		int k = 0;
+//		int[] nums = {0,0,0,0,0,0,0,0,0,0};
+//		int k = 0;
 
-		System.out.println(subarraySum(nums, k));
-		System.out.println(subarraySum2(nums, k));
-		System.out.println(subarraySum3(nums, k));
+		System.out.println("count = " + subarraySum(nums, k));
+		System.out.println("count = " + subarraySum2(nums, k));
+		System.out.println("count = " + subarraySum3(nums, k));
 	}
 
 }

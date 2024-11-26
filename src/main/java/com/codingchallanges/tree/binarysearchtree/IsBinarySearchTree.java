@@ -1,4 +1,6 @@
-package com.codingchallanges.tree.binarytree;
+package com.codingchallanges.tree.binarysearchtree;
+
+import com.codingchallanges.tree.binarytree.TreeNode;
 
 public class IsBinarySearchTree {
 

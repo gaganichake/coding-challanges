@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 public class AreFollowingPatterns {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
+        System.out.println(solution1(new String[]{"cat", "dog", "dog"}, new String[] {"a", "b", "b"})); // true
+        System.out.println(solution1(new String[]{"cat", "dog", "doggy"}, new String[] {"a", "b", "b"})); // false
     }
 
     // This is a working solution. Passed all tests. However, it does not use HashTable. Time complexity: O(n^2)
@@ -46,28 +46,28 @@ public class AreFollowingPatterns {
     }
 
     // Solved using HashTable. Time complexity: O(n) +. O(n) = O(n + n) = O(n)
-    boolean solution1(String[] strings, String[] patterns) {
+    static boolean solution1(String[] strings, String[] patterns) {
 
-        //if(strings.length != patterns.length) return false;//Not requried. It is a guaranteed constraint.
+        //if(strings.length != patterns.length) return false;//Not required. It is a guaranteed constraint.
 
         Map<String, List<Integer>> patternMap = covertToHashMap(patterns);
-
-        // Set<String> uniqueStrings = new HashSet<>();
-
+        System.out.println("patternMap = " + patternMap);
         // Time: O(n)
         for(List<Integer> list : patternMap.values()){
 
             // All indexes at i should have same String in array strings[]
-            return list.stream().map(i -> strings[i]).collect(Collectors.toSet()).size() == 1;
+            if(list.stream().map(i -> strings[i]).collect(Collectors.toSet()).size() != 1){
+                return false;
+            }
 
-            // Longer approach, however it exits ealry, which is good.
+            // Longer approach, however it exits early, which is good.
+            // Set<String> uniqueStrings = new HashSet<>();
             // for(Integer i :  list) {
             //     if(uniqueStrings.isEmpty()) {
             //         uniqueStrings.add(strings[i]);
             //     } else {
             //         if(!uniqueStrings.contains(strings[i])) return false;
             //     }
-            //     uniqueStrings.clear();
             // }
         }
 
@@ -75,7 +75,7 @@ public class AreFollowingPatterns {
     }
 
     // Time: O(n)
-    private Map<String, List<Integer>> covertToHashMap(String[] patterns) {
+    private static Map<String, List<Integer>> covertToHashMap(String[] patterns) {
 
         Map<String, List<Integer>> map = new HashMap<>();
 
@@ -83,10 +83,14 @@ public class AreFollowingPatterns {
 
             String key = patterns[i];
 
-            if (!map.containsKey(key)) {
-                map.put(key, new ArrayList<>());
-            }
-            map.get(key).add(i);
+//             map.getOrDefault(key, new ArrayList<>()).add(i);
+//
+//            if (!map.containsKey(key)) {
+//                map.put(key, new ArrayList<>());
+//            }
+            List list = map.getOrDefault(key, new ArrayList<>());
+            list.add(i);
+            map.put(key, list);
         }
         return map;
     }

@@ -12,7 +12,7 @@ public class IsSymmetricTree {
      * Given a binary tree t, determine whether it is symmetric around its center,
      * i.e. each side mirrors the other
      *
-     * Also see boolean identicalTrees(TreeNode a, TreeNode b)
+     * Also see boolean isIdenticalTrees(TreeNode a, TreeNode b)
      */
     public boolean isTreeSymmetric(TreeNode<Integer> t) {
 

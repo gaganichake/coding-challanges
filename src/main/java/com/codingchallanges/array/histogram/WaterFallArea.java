@@ -28,25 +28,21 @@ public class WaterFallArea {
 
 	public static int waterFallArea(int[] array) {
 		
-	    // To store the maximum water
-	    // that can be stored
+	    // To store the maximum water that can be stored
 		int area = 0;
 	 
 	    // For every element of the array except first and last element
-	    for(int i = 1; i < array.length - 1; i++)
-	    {
+	    for(int i = 1; i < array.length - 1; i++) {
 	         
 	        // Find maximum element on its left
 	        int left = array[i];
-	        for(int j = 0; j < i; j++)
-	        {
+	        for(int j = 0; j < i; j++) {
 	            left = Math.max(left, array[j]);
 	        }
 	 
 	        // Find maximum element on its right
 	        int right = array[i];
-	        for(int j = i + 1; j < array.length; j++)
-	        {
+	        for(int j = i + 1; j < array.length; j++) {
 	            right = Math.max(right, array[j]);
 	        }
 	 
@@ -62,6 +58,4 @@ public class WaterFallArea {
 		int[] array = {1, 2, 3, 1, 2, 4, 1, 2, 1};
 		System.out.print(waterFallArea(array));
 	}
-
 }
- 

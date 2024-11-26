@@ -31,17 +31,17 @@ public class HouseRobber {
 		if (nums.length == 0) return 0;
 		if (nums.length == 1) return nums[0];
 
-		int[] max = new int[nums.length];//prefixSum technique with comparison
+		int[] maxPrefixSum = new int[nums.length];//prefixSum technique with comparison
 
-		max[0] = nums[0];
-		max[1] = Math.max(nums[0], nums[1]);
+		maxPrefixSum[0] = nums[0];
+		maxPrefixSum[1] = Math.max(nums[0], nums[1]);
 
 		for (int i = 2; i < nums.length; i++) {
 			
-			max[i] = Math.max(max[i - 2] + nums[i], max[i - 1]);
+			maxPrefixSum[i] = Math.max(maxPrefixSum[i - 2] + nums[i], maxPrefixSum[i - 1]);
 		}
 		
-		return max[nums.length - 1];
+		return maxPrefixSum[nums.length - 1];
 	}
 	
 	// Recursive working solution with Execution time limit exceeded error on CodeSignal.
@@ -51,7 +51,9 @@ public class HouseRobber {
 		if (nums.length == 0) return 0;
 		if (nums.length == 1) return nums[0];
 		if (nums.length == 2) return Math.max(nums[0], nums[1]);
-		return Math.max(houseRobber2(Arrays.copyOfRange(nums, 0, nums.length-2)) + nums[nums.length-1], houseRobber2(Arrays.copyOfRange(nums, 0, nums.length-1)));
+		return Math.max(houseRobber2(Arrays.copyOfRange(nums, 0, nums.length-2)) + nums[nums.length-1],
+				houseRobber2(Arrays.copyOfRange(nums, 0, nums.length-1)));
+		// Either the last house has alert system or second from the last house has alert system.
 	}
 
 

@@ -118,13 +118,15 @@ public class StringPermutation {
 	}
 	
 	private static String characterToString(List<Character> list) {
-	
-		char[] array = new char[list.size()];
-		for(int i = 0; i < array.length; i++) {
-			array[i] = list.get(i);
-		}
-		
-		return new String(array);
+
+//		char[] array = new char[list.size()];
+//		for(int i = 0; i < array.length; i++) {
+//			array[i] = list.get(i);
+//		}
+//
+//		return new String(array);
+
+		return list.stream().map(ch -> ch.toString()).reduce("", (a, b) -> a + b);
 	}
 
 	public static void main(String[] args) {

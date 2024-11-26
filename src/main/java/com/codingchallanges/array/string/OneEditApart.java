@@ -38,11 +38,23 @@ package com.codingchallanges.array.string;
  */
 public class OneEditApart {
 
-	public static boolean isOneEditDistance(String shorter, String longer) {
+	public static void main(String[] args) {
+
+		System.out.println(isOneEditDistance1("cat", "dog"));//false
+		System.out.println(isOneEditDistance1("cat", "cats"));//true
+		System.out.println(isOneEditDistance1("cat", "cut"));//true
+		System.out.println(isOneEditDistance1("cat", "cast"));//true
+		System.out.println(isOneEditDistance1("cat", "at"));//true
+		System.out.println(isOneEditDistance1("cat", "act"));//false
+		System.out.println(isOneEditDistance1("abcc", "accc"));//true
+		System.out.println(isOneEditDistance1("abc", "abc"));//false
+	}
+
+	public static boolean isOneEditDistance1(String shorter, String longer) {
 
 		// Ensure that left String is shorter than right one.
 		if (shorter.length() > longer.length())
-			return isOneEditDistance(longer, shorter);
+			return isOneEditDistance1(longer, shorter);
 
 		// The strings are NOT one edit away distance
 		// if the length difference is more than 1.
@@ -73,24 +85,12 @@ public class OneEditApart {
 		return longer.length() - shorter.length() == 1;
 	}
 
-	public static void main(String[] args) {
-
-		System.out.println(isOneEditDistance1("cat", "dog"));//false
-		System.out.println(isOneEditDistance1("cat", "cats"));//true
-		System.out.println(isOneEditDistance1("cat", "cut"));//true
-		System.out.println(isOneEditDistance1("cat", "cast"));//true
-		System.out.println(isOneEditDistance1("cat", "at"));//true
-		System.out.println(isOneEditDistance1("cat", "act"));//false
-		System.out.println(isOneEditDistance1("abcc", "accc"));//true
-		System.out.println(isOneEditDistance1("abc", "abc"));//false
-	}
-
 	//One more implementation
-	public static boolean isOneEditDistance1(String s1, String s2) {
+	public static boolean isOneEditDistance2(String s1, String s2) {
 
 		if(s1 == null || s2 == null) return false;
 
-		if(s1.length() < s2.length()) isOneEditDistance1(s2, s1);//Keeping s1 to be a longer string
+		if(s1.length() < s2.length()) isOneEditDistance2(s2, s1);//Keeping s1 to be a longer string
 
 		if(s1.length() - s2.length() > 1) return false;
 
@@ -118,7 +118,47 @@ public class OneEditApart {
 
 			return countDiff < 2; // 0 if difference found beyond s2.length()
 		}
+	}
 
+	private static boolean isOneEditDistance3(String key, String doc) {
 
+		System.out.print("key = " + key + ", doc = " + doc + " | ");
+
+		return  (key.length() == doc.length() && processSameLength(key, doc))
+				|| processDiffLength(key, doc);
+	}
+
+	private static boolean processDiffLength(String longStr, String shortSrt) {
+
+		if(longStr.length() < shortSrt.length()) return processDiffLength(shortSrt, longStr);
+
+		if(longStr.length() - shortSrt.length() > 1) return false;
+
+		if(shortSrt.length() == longStr.length()-1 && longStr.indexOf(shortSrt) > -1) return true;
+
+		int errorCount = 0;
+
+		for(int i = 0; i < shortSrt.length(); i++) {
+
+			if(errorCount > 1) return false;
+
+			if(shortSrt.charAt(i) - longStr.charAt(i+errorCount) != 0) errorCount++;
+		}
+
+		return errorCount == 1;
+	}
+
+	private static boolean processSameLength(String key, String doc) {
+
+		int errorCount = 0;
+
+		for(int i = 0; i < key.length(); i++) {
+
+			if(errorCount > 1) return false;
+
+			if(key.charAt(i) - doc.charAt(i) != 0) errorCount++;
+		}
+
+		return errorCount == 1;
 	}
 }

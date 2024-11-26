@@ -7,7 +7,8 @@ package com.codingchallanges.linkedlist;
  *
  * Note: Your solution should have O(l1.length + l2.length) time complexity, since this is what you will be asked to accomplish in an interview.
  *
- * Given two singly linked lists sorted in non-decreasing order, your task is to merge them. In other words, return a singly linked list, also sorted in non-decreasing order, that contains the elements from both original lists.
+ * Given two singly linked lists sorted in non-decreasing order, your task is to merge them.
+ * In other words, return a singly linked list, also sorted in non-decreasing order, that contains the elements from both original lists.
  *
  * Example
  * For l1 = [1, 2, 3] and l2 = [4, 5, 6], the output should be solution(l1, l2) = [1, 2, 3, 4, 5, 6];
@@ -32,25 +33,25 @@ public class MergeTwoLinkedLists {
         if(l1 == null) return l2;
         if(l2 == null) return l1;
 
-        ListNode<Integer> l = new ListNode<>(0);
-        ListNode<Integer> head = l;
+        ListNode<Integer> newList = new ListNode<>(0);
+        ListNode<Integer> headOfNewList = newList;
 
         while(l1 != null && l2 != null){
 
             if(l1.value < l2.value){
-                l.next = new ListNode<>(l1.value);
+                newList.next = new ListNode<>(l1.value);
                 l1 = l1.next;
             } else {
-                l.next = new ListNode<>(l2.value);
-                l2 =l2.next;
+                newList.next = new ListNode<>(l2.value);
+                l2 = l2.next;
             }
-            l = l.next;
+            newList = newList.next;
         }
 
-        if(l1 == null) l.next = l2;
-        if(l2 == null) l.next = l1;
+        if(l1 == null) newList.next = l2;
+        if(l2 == null) newList.next = l1;
 
-        return head.next;
+        return headOfNewList.next;
     }
 
 }

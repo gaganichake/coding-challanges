@@ -5,20 +5,13 @@ package com.codingchallanges.tree.binarytree;
  * 
  * Also see boolean isTreeSymmetric(TreeNode t)
  */
-public class IdenticalTrees {
+public class IsIdenticalTrees {
 
 	public static boolean isIdenticalTrees(TreeNode<Integer> a, TreeNode<Integer> b) {
-		
-		if(a == null && b == null) return true;
-		
-		if(a != null && b != null && a.value.equals(b.value)) {
-			
-			return isIdenticalTrees(a.left, b.left) && isIdenticalTrees(a.right, b.right);
-			
-		} else {
-			return false;
-		}
-		
+
+        return (a == null && b == null)
+                || a != null && b != null && a.value == b.value
+                && isIdenticalTrees(a.left, b.left) && isIdenticalTrees(a.right, b.right);
 	}
 	public static void main(String[] args) {
 		

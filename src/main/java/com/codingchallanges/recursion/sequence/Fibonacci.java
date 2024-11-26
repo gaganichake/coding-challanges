@@ -31,7 +31,7 @@ public class Fibonacci {
 
 		if(n <= 0) return 0;
 		if(n == 1) return 1;
-		int nextNumber = fibonacci(n-1) + fibonacci(n-2);
+		int nextNumber = fibonacciMemorize(n-1) + fibonacciMemorize(n-2);
 		memo.put(n, nextNumber);
 		return nextNumber;
 	}

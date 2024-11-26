@@ -18,18 +18,17 @@ package com.codingchallanges.array.matrix;
 public class MatrixElementsSum {
 
 	//It is very easy if I just traverse column wise instead of row wise.
-	int matrixElementsSum(int[][] matrix) {
+	private static int matrixElementsSum(int[][] matrix) {
 
 	    int sum = 0;
-	    int row = matrix.length;
-	    int col = matrix[0].length;
+		int depth = matrix[0].length;
 
-	    for(int i = 0; i < col; i++){
+	    for(int c = 0; c < depth; c++){
 
-			for (int[] ints : matrix) {
+			for (int[] col : matrix) {
 
-				if (ints[i] != 0)
-					sum += ints[i];
+				if (col[c] != 0)
+					sum += col[c];
 				else
 					break;
 			}
@@ -39,15 +38,17 @@ public class MatrixElementsSum {
 	}
 
 	public static void main(String[] args) {
-//		matrix = [[0, 1, 1, 2],
-//		          [0, 5, 0, 0],
-//		          [2, 0, 3, 3]]
-		        		  //Output: 1 + 5 + 1 + 2 = 9
+		int[][] matrix_1 = {{0, 1, 1, 2},
+							{0, 5, 0, 0},
+							{2, 0, 3, 3}};
+//		Expected Output: 1 + 5 + 1 + 2 = 9
+		System.out.println(matrixElementsSum(matrix_1));
 
-//		        		  matrix = [[1, 1, 1, 0],
-//		        		            [0, 5, 0, 1],
-//		        		            [2, 1, 3, 10]]
-		        		            		//Output: 1 + 1 + 1 + 5 + 1 = 9
+		int[][] matrix_2 = {{1, 1, 1, 0},
+							{0, 5, 0, 1},
+							{2, 1, 3, 10}};
+		//Expected Output: 1 + 1 + 1 + 5 + 1 = 9
+		System.out.println(matrixElementsSum(matrix_2));
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.codingchallanges.array.search;
 
+import sun.lwawt.macosx.CSystemTray;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -25,12 +27,9 @@ public class SockMerchant {
 
 		Map<Integer, Integer> map =  new HashMap<>();
 
-		for (int j : arr) {
+		for (int color : arr) {
 
-			if (map.containsKey(j))
-				map.put(j, map.get(j) + j);
-			else
-				map.put(j, j);
+			map.put(color, map.getOrDefault(color, 1) + 1);
 		}
 
 		int pairs = 0;
@@ -75,8 +74,8 @@ public class SockMerchant {
 //    }
 
 	/*
-	 * This algorithm uses Hash Set and does not sort the array Explanation: If
-	 * array is empty or size 1, return 0 If n is 0 or 1, return 0 Create a Set
+	 * This algorithm uses Hash Set and does not sort the array. Explanation: If
+	 * array is empty or size 1, return 0. If n is 0 or 1, return 0. Create a Set
 	 * Create a variable 'pair'. Initialize with 0 If an array with more than one
 	 * element repeat this - Pick fist element from the array. If the current
 	 * element already exist in the Set, do this - Increment variable 'pairs' by one
@@ -107,7 +106,8 @@ public class SockMerchant {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		System.out.println(sockMerchant(new int[] {1, 2, 1, 2, 3, 2}));
+		System.out.println(sockMerchant(new int[] {5, 1, 8, 1, 5, 1}));
 	}
 
 }

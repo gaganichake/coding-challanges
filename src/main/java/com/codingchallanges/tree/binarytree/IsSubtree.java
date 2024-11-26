@@ -38,50 +38,23 @@ package com.codingchallanges.tree.binarytree;
  */
 public class IsSubtree {
 
+	// Version 2
 	// This is more clean code with the exact same logic as Version 1
 	boolean solution(TreeNode<Integer> t1, TreeNode<Integer> t2) {
 
-		return isEquals(t1, t2) || t1 != null && (solution(t1.left, t2) || solution(t1.right, t2));
+		return IsIdenticalTrees.isIdenticalTrees(t1, t2) // Simply check if two trees are equal
+				|| t1 != null && (solution(t1.left, t2) || solution(t1.right, t2)); // Otherwise, search the root of sub-tree
 
-	}
-
-	// Simply check if two trees are equal
-	boolean isEquals(TreeNode<Integer> t1, TreeNode<Integer> t2){
-
-		if(t1 == null && t2 == null) return true;
-
-		return t1 != null && t2 != null
-				&& t1.value.intValue() == t2.value.intValue()
-				&& isEquals(t1.left, t2.left)
-				&& isEquals(t1.right, t2.right);
 	}
 
 	// Version 1
-	boolean solutionV1(TreeNode<Integer> t1, TreeNode<Integer> t2) {
+	boolean solutionV1(TreeNode<Integer> t, TreeNode<Integer> subT) {
 	    
-	    if(t1 == null && t2 == null) return true;
+	    if(t == null && subT == null) return true;
 	    
-	    if(t1 != null & t2 != null && t1.value.intValue() == t2.value.intValue()) 
-	        return isEqualsV1(t1, t2);
-	    else return t1 != null && (solution(t1.left, t2) || solution(t1.right, t2));
-	}
-
-	// Simply check if two trees are equal
-	boolean isEqualsV1(TreeNode<Integer> subT1, TreeNode<Integer> t2){
-	    
-	    if(subT1 == null && t2 == null) return true;
-	    
-	    if(subT1 != null && t2 != null && subT1.value.intValue() == t2.value.intValue()) {
-	        
-	        if(isEqualsV1(subT1.left, t2.left))
-	            return isEqualsV1(subT1.right, t2.right);
-	        else 
-	            return false; 
-	        
-	    } else {
-	        return false;
-	    }
-	  
+	    if(t != null & subT != null && t.value.intValue() == subT.value.intValue())
+	        return IsIdenticalTrees.isIdenticalTrees(t, subT); // Simply check if two trees are equal
+	    else return t != null && (solution(t.left, subT) || solution(t.right, subT)); // Otherwise, search the root of sub-tree
 	}
 	
 	public static void main(String[] args) {

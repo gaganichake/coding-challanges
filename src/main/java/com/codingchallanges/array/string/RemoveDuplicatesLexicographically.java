@@ -1,9 +1,6 @@
 package com.codingchallanges.array.string;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
  * Google technical interview (I) Sep/17/2021
@@ -20,13 +17,7 @@ public class RemoveDuplicatesLexicographically {
 		for(int i = 0; i < s.length(); i++) {
 
 			char c  = s.charAt(i);
-			List<Integer> list;
-
-			if(map.containsKey(c)) {
-				list = map.get(c);
-			} else {
-				list = new ArrayList<>();
-			}
+			List<Integer> list = map.getOrDefault(c, new ArrayList<>());
 			list.add(i);
 			map.put(c, list);
 		}
@@ -53,7 +44,7 @@ public class RemoveDuplicatesLexicographically {
 
 		System.out.println(map);
 
-		char[] charArray = new char[s.length()];//I original used "new char[map.size()];" in the interview. That was the only mistake.
+		char[] charArray = new char[s.length()];//I originally used "new char[map.size()];" in the interview. That was the only mistake.
 
 		for(char c : map.keySet()) {
 
@@ -75,4 +66,22 @@ public class RemoveDuplicatesLexicographically {
 		System.out.println(removeDuplicatesLexicographically("level"));//Expected output : evl
 
 	}
+
+	// Incorrect result
+//	private static String removeDuplicatesLexicographically(String inputString) {
+//
+//		SortedSet set = new TreeSet<Character>();
+//
+//		char[] chArr = inputString.toCharArray();
+//
+//		for (char ch :  chArr){
+//
+//			set.add(ch);
+//		}
+//		StringBuffer sb = new StringBuffer();
+//
+//		set.forEach(c -> sb.append(c));
+//
+//		return sb.toString();
+//	}
 }

@@ -8,42 +8,37 @@ import java.util.Arrays;
  */
 public class LongestIncreasingSubsequence {
 
-	// This solution is different than given in the book
+	// This solution is different from given in the book
 	public static int[] longestIncreasingSequence(int[] array){
 
-		//Similar to prefixSum technique but using array.length instead of array.length + 1
-		int[] prefixDiff = new int[array.length];
-		Arrays.fill(prefixDiff, 0);
+		//Similar to prefixSum technique, using sum of length instead. Using array.length instead of array.length - 1
+		int[] prefixLength = new int[array.length];
+		Arrays.fill(prefixLength, 0);
 
-		int longestIndex = 0;
-		int longest = 0;
+		int lengthOfLongestSequence = 0;
+		int indexOfLargestValue = 0;
 
 		//First element [0] of array will always have height difference of 0
-		for(int i = 1; i < array.length; i++) {
+		for(int i = 1; i < prefixLength.length; i++) {
 
 			if(array[i] > array[i-1]) {
-				prefixDiff[i] = 1 + prefixDiff[i-1];
+				prefixLength[i] = 1 + prefixLength[i-1];//Calculate length
 			}
 
-			if(prefixDiff[i] > longest) {
-				longestIndex = i;
+			if(prefixLength[i] > lengthOfLongestSequence) {
+				lengthOfLongestSequence = prefixLength[i];
+				indexOfLargestValue = i;
 			}
 		}
-		System.out.println(Arrays.toString(prefixDiff));
-		System.out.println(longestIndex);
 
-		return Arrays.copyOfRange(array, longestIndex - prefixDiff[longestIndex], longestIndex+1);
+		return Arrays.copyOfRange(array, indexOfLargestValue - prefixLength[indexOfLargestValue], indexOfLargestValue+1);
 	}
-
 
 	public static void main(String[] args) {
 
 		//Please note this array is partially sorted, having sorted sub-sequences
-//		int[] array = {13, 14, 10, 11, 12};//Difference is 1
-		int[] array = {13, 14, 10, 11, 16};//Difference is greater than 1
 
-		System.out.println(Arrays.toString(longestIncreasingSequence(array)));
-
+		System.out.println(Arrays.toString(longestIncreasingSequence(new int[] {13, 14, 10, 11, 12})));
+		System.out.println(Arrays.toString(longestIncreasingSequence(new int[] {1, 9, 10, 5, 7})));
 	}
-
 }

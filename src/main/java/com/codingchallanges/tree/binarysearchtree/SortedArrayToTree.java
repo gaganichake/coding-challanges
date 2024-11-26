@@ -24,7 +24,7 @@ public class SortedArrayToTree {
 		
 		int mid =  (left+right)/2;
 		
-		//pre-order
+		//pre-order (Root > Left > Right)
 		BalancedTreeNode root = new BalancedTreeNode(nums[mid]);
 		
 		root.left = sortedArrayToBST(nums, left, mid-1);

@@ -91,8 +91,7 @@ public class BinarySearchWithEmptyBlocks {
 	public static void main(String[] arg) {
 
 		int[] array = {2, -1, 7, 10, -1, -1, -1, 60, 99};
-//		int[] array = {-1};
-
+		System.out.println(Arrays.stream(array));
 		int key = 10;
 
 		int index = binarySearch(array, 0, array.length - 1, key);

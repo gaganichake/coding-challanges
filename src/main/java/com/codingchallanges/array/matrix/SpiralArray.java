@@ -93,12 +93,16 @@ import com.codingchallanges.array.Utility;
 public class SpiralArray {
 
 
+	// Backtracking
 	public static int[][] genSpiral(int n) {
 
 		if (n <= 0) {
 			throw new IllegalArgumentException("N must be >0");
 		}
-
+		// 00 01 02 03
+		// 10 11 11 11
+		// 20 21 22 23
+		// 30 31 32 33
 		int[] rowDir = new int[] { 0, 1, 0, -1 };//Directions for row (right, bottom, left, up)
 		int[] colDir = new int[] { 1, 0, -1, 0 };//Directions for column (right, bottom, left, up)
 
@@ -136,7 +140,7 @@ public class SpiralArray {
 
 		int[][] twoDArray = genSpiral(3);
 
-		System.out.println(Utility.printTwoDArray(twoDArray));
+		System.out.println(Utility.printArray(twoDArray));
 
 	}
 }

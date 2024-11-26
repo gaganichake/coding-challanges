@@ -1,4 +1,4 @@
-package com.codingchallanges.array.string;
+package com.codingchallanges.hashtable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +20,7 @@ public class VerifyAlienDictionary {
 
 		/*
 		 * Words are sorted in ascending order as per the new language
+		 * Time O(nxn)
 		 */
 	    public static boolean isAlienSorted(String[] words, String order) {
 
@@ -81,7 +82,7 @@ public class VerifyAlienDictionary {
 		System.out.println(isAlienSorted2(words, order));
 	}
 
-	// Using Map or HashTable
+	// Using Map or HashTable. Time O(n)
 	 public static boolean isAlienSorted2(String[] words, String order) {
 
 		 if(words.length < 2) return true;

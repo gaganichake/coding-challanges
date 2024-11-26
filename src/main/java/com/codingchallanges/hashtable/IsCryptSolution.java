@@ -1,4 +1,4 @@
-package com.codingchallanges.array.string;
+package com.codingchallanges.hashtable;
 
 import java.util.ArrayList;
 import java.util.HashMap;

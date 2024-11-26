@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * where route[i] shows the route that the ith bus takes.
  * For e.g 1st bus route would be 1 -> 2 -> 7 -> 1 -> 2 -> 7 -> 1 -> 2 -> 7... and so on.
  * 
- * Find the minimum number of bus changes needed given a source and a destination stop.
+ * Find the minimum number of bus changes needed, given a source and a destination stop.
  * 
  * Example 1: Input: bus routes: [[1, 2, 7], [3, 6, 7], [4, 5]] ,
  * 
@@ -49,11 +49,12 @@ public class BusHops {
 
 			for(int i = 0; i < routes[route].length; i++) {
 
-				if(!stopToRoute.containsKey(routes[route][i])) {
-					stopToRoute.put(routes[route][i], new ArrayList<>());
-				}
-				routeList = stopToRoute.get(routes[route][i]);
+//				if(!stopToRoute.containsKey(routes[route][i])) {
+//					stopToRoute.put(routes[route][i], new ArrayList<>());
+//				}
+				routeList = stopToRoute.getOrDefault(routes[route][i], new ArrayList<>());
 				routeList.add(route);
+				stopToRoute.put(routes[route][i], routeList);
 			}
 		}
 

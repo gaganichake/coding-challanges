@@ -8,7 +8,8 @@ package com.codingchallanges.tree.binarytree;
  * We're going to store numbers in a tree. Each node in this tree will store a single digit (from 0 to 9), and each path from root to leaf encodes a non-negative integer.
  * 
  * Given a binary tree t, find the sum of all the numbers encoded in it.
- * 
+ * (Elbow is not counted. The ending number must a leaf node.)
+ *
  * Example 1:
  * 
  *    1
@@ -37,56 +38,67 @@ package com.codingchallanges.tree.binarytree;
  */
 public class DigitTreeSum {
 
-	long digitTreeSum(TreeNode<Integer> t) {
+	static long digitTreeSum(TreeNode<Integer> node) {
 
-		preorderTraversal(t, new StringBuffer());
+//		preorderTraversal(node, new StringBuffer());
+//		return total;
 
-		return total;
+		return digitTreeSum(node, "");
 	}
 
-	long total = 0L;
+	static long total = 0L;
 
 	// Parent -> Left child -> Right child (Depth First Search)
-	private void preorderTraversal(TreeNode<Integer> t, StringBuffer encodedNumber) {
+	private static void preorderTraversal(TreeNode<Integer> node, StringBuffer encodedNumber) {
 
-		if (t == null) {
+		if (node == null) {
 			return;
 		}
 
 		// exit condition (leaf node)
-		if (t.left == null && t.right == null) {
-			encodedNumber.append(t.value);
+		if (node.left == null && node.right == null) {
+			encodedNumber.append(node.value);
 			total += Long.parseLong(encodedNumber.toString());
 			return;
 		}
 
 		// process data
-		encodedNumber.append(t.value);
+		encodedNumber.append(node.value);
 
-		// go to left
-//		if (t.left == null) {
-			// total += Long.valueOf(encodedNumber.toString()).longValue(); // Invalid
-			// number. Elbow is not counted. The ending number must a leaf node.
-//		} else {
-			preorderTraversal(t.left, new StringBuffer(encodedNumber)); // Option 1
-			// preorderTraversal(t.left, encodedNumber); // Option 2
-			// encodedNumber.deleteCharAt(encodedNumber.length() - 1); // Option 2
-//		}
+		preorderTraversal(node.left, new StringBuffer(encodedNumber));
 
-		// go to right
-//		if (t.right == null) {
-			// total += Long.valueOf(encodedNumber.toString()).longValue(); / Invalid
-			// number. Elbow is not counted. The ending number must a leaf node.
-//		} else {
-			preorderTraversal(t.right, new StringBuffer(encodedNumber)); // Option 1
-			// preorderTraversal(t.right, encodedNumber); // Option 2
-			// encodedNumber.deleteCharAt(encodedNumber.length() - 1); // Option 2
-//		}
+		preorderTraversal(node.right, new StringBuffer(encodedNumber));
+
+	}
+
+	// Same approach without global variable 'total"
+	static long digitTreeSum(TreeNode<Integer> node, String number) {
+
+		if(node.left == null && node.right == null)  {
+			System.out.println("number = " + number);
+			return Long.valueOf(number + node.value);
+		}
+
+		return digitTreeSum(node.left, number + node.value)
+				+ digitTreeSum(node.right, number + node.value);
+
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		TreeNode<Integer> node1 = new TreeNode<>(1);
+		node1.left = new TreeNode<>(0);
+		node1.right = new TreeNode<>(4);
+		node1.left.left = new TreeNode<>(3);
+		node1.left.right = new TreeNode<>(1);
+
+		TreeNode<Integer> node2 = new TreeNode<>(0);
+		node2.left = new TreeNode<>(9);
+		node2.right = new TreeNode<>(9);
+		node2.right.left = new TreeNode<>(1);
+		node2.right.right = new TreeNode<>(3);
+
+		System.out.println("sum = " + digitTreeSum(node2));
 	}
 
 }

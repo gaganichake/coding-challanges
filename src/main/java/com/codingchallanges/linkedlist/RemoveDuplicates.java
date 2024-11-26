@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class RemoveDuplicates {
 
-	//Needs improvements
+	//Time: O(1), Space: O(1). Best solution
 	public static void removeDuplicatesUsingBuffer(ListNode<Integer> head) {
 
 		if(head == null) return;
@@ -38,7 +38,7 @@ public class RemoveDuplicates {
 		}
 	}
 
-	// Time: O(N*N), Space: O(1). This approach is slightly different from the book
+	// Time: O(N*N), Space: O(n). This approach is slightly different from the book
 	public static void removeDuplicatesNoBuffer(ListNode<Integer> head) {
 
 		if(head == null || head.next == null) return;
@@ -60,6 +60,7 @@ public class RemoveDuplicates {
 		removeDuplicatesNoBuffer(head.next);
 	}
 
+	// Time: O(N*N), Space: O(1). The above solution converted to iterative code reduces space complexity.
 	public static void removeDuplicatesNoBuffer2(ListNode<Integer> head) {
 
 		if(head == null) return;
@@ -112,8 +113,8 @@ public class RemoveDuplicates {
 
 		System.out.println(linkedList);
 
-//		removeDuplicatesUsingBuffer(linkedList);
-		removeDuplicatesNoBuffer(linkedList);
+		removeDuplicatesUsingBuffer(linkedList);
+//		removeDuplicatesNoBuffer(linkedList);
 //		removeDuplicatesNoBuffer2(linkedList);
 
 		System.out.println(linkedList);

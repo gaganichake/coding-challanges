@@ -69,7 +69,7 @@ public class AddTwoBinaryNumbers {
 
 		  StringBuilder sb = new StringBuilder();
 
-		  //String reversal is required because the zero'the index is at left side.
+		  //String reversal is required because the zero'th index is at left side.
 		  StringBuilder n1sb = new StringBuilder(n1);
 		  n1 = n1sb.reverse().toString();
 
@@ -82,10 +82,11 @@ public class AddTwoBinaryNumbers {
 		  //Iterate the bigger number
 		  for(int i = 0;  i < n2.length(); i++){
 
-		    sum = ((i < n1.length()) ? (Integer.parseInt(""+n1.charAt(i))) : 0) + Integer.parseInt(""+n2.charAt(i)) + carry;
+		    sum = (i < n1.length() ? Integer.parseInt(""+n1.charAt(i)) : 0) + Integer.parseInt(""+n2.charAt(i)) + carry;
 
 		    sb.append(sum % 2);
 		    carry = sum / 2;
+			System.out.println(sb);
 		  }
 
 		  sb.append(carry);
@@ -97,6 +98,6 @@ public class AddTwoBinaryNumbers {
 	public static void main(String[] arg) {
 
 		System.out.println(sum("11", "111"));//Output: 1010
-		System.out.println(sum("101", "1011"));//Output: 10000
+//		System.out.println(sum("101", "1011"));//Output: 10000
 	}
 }

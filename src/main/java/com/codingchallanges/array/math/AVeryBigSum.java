@@ -1,5 +1,8 @@
 package com.codingchallanges.array.math;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /*
  * https://www.hackerrank.com/challenges/a-very-big-sum/problem
  *
@@ -12,25 +15,17 @@ public class AVeryBigSum {
 	//Using long type when number are bigger that integer
 	static long aVeryBigSum(long[] ar) {
 
-		long sum = 0;
-
-		for (long l : ar) {
-			sum += l;
-		}
-
-		return sum;
+		return Arrays.stream(ar).sum();
 	}
 
 	public static void main(String[] args) {
 
 		String[] arItems = "1000000001 1000000002 1000000003 1000000004 1000000005".split(" ");
 
-		long[] ar = new long[arItems.length];
-
-		for (int i = 0; i < arItems.length; i++) {
-			long arItem = Long.parseLong(arItems[i]);
-			ar[i] = arItem;
-		}
+		long[] ar  = Arrays.stream(arItems)
+				.map(str -> Long.parseLong(str))
+				.collect(Collectors.toList())
+				.stream().mapToLong(l -> l).toArray();
 
 		long result = aVeryBigSum(ar);
 

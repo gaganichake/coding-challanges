@@ -12,21 +12,19 @@ import java.util.Arrays;
  *
  *n=-1 -> result=0
  *n=0 -> result=0
- *n=1 -> result=1
+ *n=1 -> result=0
  *n=2 -> result=1
  *n=7 -> result=4
  *n=10,000 -> result=1,229
  *n=100,000 -> result=9,592
  *n=1,000,000 -> result=78,498
  *
- * 1, 3, 5, 7, 11, 13, 17, 19, 21, 23, 27
+ * 2, 3, 5, 7, 11, 13, 17, 19, 21, 23, 27
  */
 
 public class FindPrimeNumbers {
 
 	public static int findPrimeNumbers(int n) {
-
-		int count = 0;
 
 		if(n < 2) return 0;
 
@@ -36,21 +34,22 @@ public class FindPrimeNumbers {
 		Arrays.fill(prime, true);
 
 		// Setting initial facts
-		prime[0] = false; //0 is not prime
-		prime[1] = false; //1 is not prime
+		prime[0] = false; //0 is not a prime
+		prime[1] = false; //1 is not a prime
 
-		//All multiples of prime are NOT prime
-//		for(int i = 2; i <= n; i++) {//This works
+//		for(int i = 2; i <= n; i++) {//This also works
 		for(int i = 2; i <= Math.sqrt(n);i++) {//However, this is sufficient to end at prime's square root
 
 			if(prime[i]) {
-
+				//All multiples of prime are NOT prime
 //				for(int j = 2; j * i <= n; j++) {//This works
 				for(int j = i; j * i <= n; j++) {//However, starting with prime's square is sufficient
 					prime[j * i] = false;
 				}
 			}
 		}
+
+		int count = 0;
 
 		for(int i = 0; i < n + 1; i++) {
 			if(prime[i]) count++;

@@ -6,24 +6,29 @@ package com.codingchallanges.array.math;
  *
  * Given an array of integers, find the pair of adjacent elements
  * that has the largest product and return that product.
+ *
+ * Example
+ * For inputArray = [3, 6, -2, -5, 7, 3], the output should be
+ * solution(inputArray) = 21.
+ *
+ * 7 and 3 produce the largest product.
  */
 public class AdjacentElementsProduct {
 
-	int adjacentElementsProduct(int[] inputArray) {
+	static int adjacentElementsProduct(int[] inputArray) {
 
-	    int largetProduct = -1000000;//This constraint is given in the problem itself.
+	    int largestProduct = -1000000;//This constraint is given in the problem itself.
 
 	    for(int i = 0; i < inputArray.length-1; i++){
 	        int product = inputArray[i] * inputArray[i+1];
-	        if(largetProduct < product) largetProduct = product;
+	        if(largestProduct < product) largestProduct = product;
 	    }
 
-	    return largetProduct;
+	    return largestProduct;
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		System.out.println(adjacentElementsProduct(new int[] {3, 6, -2, -5, 7, 3}));
 	}
-
 }

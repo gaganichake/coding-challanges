@@ -1,5 +1,7 @@
 package com.codingchallanges.array.search;
 
+import java.util.Arrays;
+
 /*
  * Find a given element:
  * CTCI 11.3 Given a sorted array of n integers that has been rotated an unknown number of
@@ -13,30 +15,9 @@ package com.codingchallanges.array.search;
  */
 public class BinarySearchRotatedArray {
 
-	public static int findMin(int[] arr) {
+	private static int findMinLinearSearch(int[] arr) {
 
-		if(arr.length == 0) return 0;
-
-		int left = 0, right = arr.length - 1;
-
-		return binarySearchFindMin(arr, left, right);
-	}
-
-	private static int binarySearchFindMin(int[] arr, int left, int right) {
-
-		int mid = left + (right - left) / 2;
-
-		if(left >= right) return arr[left];
-
-		if(arr[mid] > arr[right]) {
-			return binarySearchFindMin(arr, mid+1, right);
-		} else {
-			return binarySearchFindMin(arr, left, mid);
-		}
-	}
-
-	private static int linearSearch(int[] arr, int left, int right) {
-
+		/*
 		int min = arr[left];
 
 		for(int i = left; i < right; i++) {
@@ -45,10 +26,46 @@ public class BinarySearchRotatedArray {
 				min = arr[i];
 			}
 		}
-
 		return min;
+		*/
+
+		// return Arrays.stream(arr).reduce(Integer::min);
+		return Arrays.stream(arr).min().getAsInt();
 	}
 
+	public static int findMinRecursion(int[] arr) {
+
+		if(arr.length == 0) return -1;
+		if(arr.length == 1) return 0;
+
+		return binarySearchFindMin(arr, 0, arr.length - 1);
+	}
+
+	private static int binarySearchFindMin(int[] arr, int left, int right) {
+
+		int mid = left + (right - left) / 2;
+
+		if (left >= right) return arr[left];
+
+		if (arr[mid] > arr[right]) {
+			return binarySearchFindMin(arr, mid + 1, right);
+		} else {
+			return binarySearchFindMin(arr, left, mid);
+		}
+	}
+
+	public static int findElementUsingMin(int[] arr, int k){
+
+		int minIndex = findMinRecursion(arr);
+
+		 int index = Arrays.binarySearch(Arrays.copyOfRange(arr, 0, minIndex-1), k);
+
+		 if(index == -1) {
+			 index = minIndex + Arrays.binarySearch(Arrays.copyOfRange(arr, minIndex, arr.length), k);
+		 }
+
+		return index;
+	}
 
 	public static int findElement(int[] arr, int k) {
 
@@ -105,12 +122,14 @@ public class BinarySearchRotatedArray {
 //		int[] array = {7, 1, 2 };
 //		int[] array = {1, 2 };
 		int[] array = {5, 6, 7, 1, 2, 3, 4};
-		int left = 0;
 
-		System.out.println("Minimum element: " + findMin(array));
-		System.out.println("Minimum element: " + linearSearch(array, left, array.length));
+		System.out.println("Minimum element: " + findMinLinearSearch(array));
 
-		System.out.println("Element was found at position:" + findElement(array, 1));
+		System.out.println("Minimum element: " + findMinRecursion(array));
+
+		System.out.println("Element was found at position: " + findElementUsingMin(array, 2));
+
+		System.out.println("Element was found at position:" + findElement(array, 2));
 	}
 
 }

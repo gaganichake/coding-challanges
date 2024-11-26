@@ -1,4 +1,4 @@
-package com.codingchallanges.tree.fb;
+package com.codingchallanges.tree.binarysearchtree;
 /* Node is defined as :
 class Node
     int data;
@@ -7,7 +7,7 @@ class Node
 
     */
 
-public class BinaryTreeInsertion {
+public class BinarySearchTreeInsertion {
 
 	static class Node {
 	    int data;

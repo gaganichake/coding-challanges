@@ -156,7 +156,8 @@ public class BinaryTreeLevelsToLinkedList {
 		t.right = new TreeNode<>(2);
 		t.right.right = new TreeNode<>(3);
 		t.right.right.right = new TreeNode<>(4);
-		PrintLevelOrder.printLevelOrder(t);
+		TraversalLevelOrder<Integer> printLevelOrder =  new TraversalLevelOrder<>();
+		printLevelOrder.printLevelOrder(t);
 
 		List<List<TreeNode<Integer>>> listOfLinkedList = convertLevelsToLinkedList(t);
 		System.out.println();

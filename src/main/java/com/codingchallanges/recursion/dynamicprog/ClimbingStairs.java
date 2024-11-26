@@ -28,15 +28,15 @@ public class ClimbingStairs {
 
 		if(n < 0) return 0;
 
-		if(n == 0) return 1;
+		// n == 0 means you have reached to the top.
+		if(n == 0) return 1; // Reaching to top counts for one distinct way
 
-		if(map.containsKey(n)) return map.get(n);
-		else {
-			map.put(n, climbingStairs(n - 1)
+		// You can choose a combination on 1, 2 and/or 3 steps while climbing
+		map.put(n, climbingStairs(n - 1)
 					+ climbingStairs(n - 2)
 					+ climbingStairs(n - 3));
-			return map.get(n);
-		}
+
+		return map.get(n);
 	}
 
 	public static void main(String[] args) {
@@ -44,6 +44,7 @@ public class ClimbingStairs {
 		int n = 5;
 
 		System.out.println(climbingStairs(n));
+		System.out.println(map);
 
 	}
 

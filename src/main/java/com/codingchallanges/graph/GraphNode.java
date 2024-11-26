@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class GraphNode {
 
 	private int id;
-	private LinkedList<GraphNode> adjecent = new LinkedList<>();
+	private LinkedList<GraphNode> adjacent = new LinkedList<>();
 
 	public GraphNode(int id) {
 		this.id = id;
@@ -15,17 +15,7 @@ public class GraphNode {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public LinkedList<GraphNode> getAdjacent() {
+		return adjacent;
 	}
-
-	public LinkedList<GraphNode> getAdjecent() {
-		return adjecent;
-	}
-
-	public void setAdjecent(LinkedList<GraphNode> adjecent) {
-		this.adjecent = adjecent;
-	}
-
-
 }
