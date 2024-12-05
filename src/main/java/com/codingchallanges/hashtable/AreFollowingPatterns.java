@@ -28,7 +28,7 @@ public class AreFollowingPatterns {
     }
 
     // This is a working solution. Passed all tests. However, it does not use HashTable. Time complexity: O(n^2)
-    boolean areFollowingPatterns(String[] strings, String[] patterns) {
+    public boolean areFollowingPatterns(String[] strings, String[] patterns) {
 
         //if(strings.length != patterns.length) return false;//Not required. It is a guaranteed constraint.
 
