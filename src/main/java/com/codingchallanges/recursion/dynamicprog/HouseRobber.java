@@ -44,7 +44,7 @@ public class HouseRobber {
 		return maxPrefixSum[nums.length - 1];
 	}
 	
-	// Recursive working solution with Execution time limit exceeded error on CodeSignal.
+	// Recursive working solution with "Execution time limit exceeded" error on CodeSignal.
 	// Time complexity: O(2^n)
 	public static int houseRobber2(int[] nums) {
 

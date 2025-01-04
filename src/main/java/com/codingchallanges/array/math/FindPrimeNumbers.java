@@ -37,14 +37,13 @@ public class FindPrimeNumbers {
 		prime[0] = false; //0 is not a prime
 		prime[1] = false; //1 is not a prime
 
-//		for(int i = 2; i <= n; i++) {//This also works
+//		for(int i = 2; i <= n; i++) {//This works
 		for(int i = 2; i <= Math.sqrt(n);i++) {//However, this is sufficient to end at prime's square root
 
 			if(prime[i]) {
-				//All multiples of prime are NOT prime
 //				for(int j = 2; j * i <= n; j++) {//This works
 				for(int j = i; j * i <= n; j++) {//However, starting with prime's square is sufficient
-					prime[j * i] = false;
+					prime[j * i] = false; //All multiples of prime are NOT prime
 				}
 			}
 		}

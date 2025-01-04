@@ -72,7 +72,7 @@ public class PatternBuilderJusticeCalderon {
 
         for (int i = 0; i < array.length; i++) {
             // Check if the element is present in the HashMap
-            var checkElementPresent = inputArrayMap.get(array[i]);
+            ArrayList<Integer> checkElementPresent = inputArrayMap.get(array[i]);
 
             if (checkElementPresent == null) {
                 // Put element into HashMap

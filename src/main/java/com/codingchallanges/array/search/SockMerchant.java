@@ -1,7 +1,5 @@
 package com.codingchallanges.array.search;
 
-import sun.lwawt.macosx.CSystemTray;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
