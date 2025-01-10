@@ -50,11 +50,7 @@ public class SearchSortedMatrix {
 
 		int i = Arrays.binarySearch(newArray, key);
 
-		int[] result = new int[2];
-		result[0] = i / matrix[0].length;
-		result[1] = i % matrix[0].length;
-
-		return result;
+		return new int[]{i / matrix[0].length, i % matrix[0].length};
 	}
 
 	/*

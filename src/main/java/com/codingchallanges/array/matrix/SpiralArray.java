@@ -92,7 +92,6 @@ import com.codingchallanges.array.Utility;
  */
 public class SpiralArray {
 
-
 	// Backtracking
 	public static int[][] genSpiral(int n) {
 
@@ -100,30 +99,35 @@ public class SpiralArray {
 			throw new IllegalArgumentException("N must be >0");
 		}
 		// 00 01 02 03
-		// 10 11 11 11
+		// 10 11 12 13
 		// 20 21 22 23
 		// 30 31 32 33
 		int[] rowDir = new int[] { 0, 1, 0, -1 };//Directions for row (right, bottom, left, up)
 		int[] colDir = new int[] { 1, 0, -1, 0 };//Directions for column (right, bottom, left, up)
 
-		int direction = 0, val = 0, row = 0, col = 0, limit = n * n;
+		int direction = 0, value = 0, row = 0, col = 0, limit = n * n;
 
 		int[][] matrix = new int[n][n];
 
-		while (val++ < limit) {
+		while (value++ < limit) {
 
-			matrix[row][col] = val;
+			matrix[row][col] = value;
 
-			row += rowDir[direction];//Moving forward
-			col += colDir[direction];//Moving forward
+			//Move one step forward
+			row += rowDir[direction];
+			col += colDir[direction];
 
-			if (isInvalid(matrix, row, col)) {//Checking if previous step was valid
+			//Checking if next step is valid
+			if (isInvalid(matrix, row, col)) {
 
-				row -= rowDir[direction];//Backtracking
-				col -= colDir[direction];//Backtracking
+				//Move one step backward
+				row -= rowDir[direction];
+				col -= colDir[direction];
 
-				direction = (direction + 1) % 4;//Now change the direction. There are 4 possible directions.
+				//Now change the direction. There are 4 possible directions.
+				direction = (direction + 1) % 4;
 
+				//Move one step forward
 				row += rowDir[direction];//Moving forward again
 				col += colDir[direction];//Moving forward again
 			}
@@ -132,8 +136,9 @@ public class SpiralArray {
 		return matrix;
 	}
 
+	//Row-column index should be valid and cell should be non-zero.
 	private static boolean isInvalid(int[][] m, int r, int c) {
-		return r < 0 || c < 0 || r >= m.length || c >= m.length || m[r][c] != 0;//Row-column index should be valid and cell should be non-zero.
+		return r < 0 || c < 0 || r >= m.length || c >= m.length || m[r][c] != 0;
 	}
 
 	public static void main(String[] args) {

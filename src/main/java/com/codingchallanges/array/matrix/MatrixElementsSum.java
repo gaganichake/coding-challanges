@@ -21,14 +21,15 @@ public class MatrixElementsSum {
 	private static int matrixElementsSum(int[][] matrix) {
 
 	    int sum = 0;
-		int depth = matrix[0].length;
+		int length = matrix[0].length;
+		int depth = matrix.length;//
 
-	    for(int c = 0; c < depth; c++){
+	    for(int colIndex = 0; colIndex < length; colIndex++){
 
-			for (int[] col : matrix) {
+			for (int[] row : matrix) {
 
-				if (col[c] != 0)
-					sum += col[c];
+				if (row[colIndex] != 0)
+					sum += row[colIndex];
 				else
 					break;
 			}

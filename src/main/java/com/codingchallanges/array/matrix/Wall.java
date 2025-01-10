@@ -3,6 +3,7 @@ package com.codingchallanges.array.matrix;
 import java.util.Arrays;
 
 /*
+Dec, 2024 - Paypal
 Given a wall and a position, write a function to return how many neighbors the brick at that position has.
 
 The position within the wall is given from the top-left. This position may fall anywhere within a brick (not necessarily at the start) and identifies the brick where it points to. Additionally, dependning on the brick width, there can be multiple positions to identify the same brick.
@@ -36,8 +37,6 @@ brick_wall_7 = [
  [1,2,1,3,2],
  [1,1,1,1,3,2]
 ]
-
-int[] traverse = {0, 1, 0, -1}
 
 brick_wall_8 = [
  [1,1,1,1,1,1,1,1],
@@ -108,6 +107,7 @@ public class Wall {
 
         }
 
+        //TODO - Incomplete
         private static int analyze_brick(int[][] wall, int i, int j){
 
             int width = Arrays.stream(wall[0]).sum();
