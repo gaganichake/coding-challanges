@@ -1,7 +1,6 @@
 package com.codingchallanges.recursion.backtracking;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /*
  * Google technical interview (II) Sep/17/2021

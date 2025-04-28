@@ -3,21 +3,21 @@ package com.codingchallanges.recursion.dynamicprog;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
+/**
  * climbingStairs
- *
- * https://leetcode.com/problems/climbing-stairs/
+ * <p>
+ * <a href="https://leetcode.com/problems/climbing-stairs/">climbingStairs</a>
  * You are climbing a staircase. It takes n steps to reach the top.
- *
+ * <p>
  * Each time you can either climb 1 or 2 or 3
  * In how many distinct ways can you climb to the top?
- *
+ * <p>
  * Example
  * For n = 1, the output should be solution(n) = 1;
- *
+ * <p>
  * For n = 2, the output should be solution(n) = 2.
  * You can either climb 2 steps at once or climb 1 step two times.
- *
+ * <p>
  * CTCI 9.1
  */
 public class ClimbingStairs {

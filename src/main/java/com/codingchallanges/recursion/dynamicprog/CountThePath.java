@@ -19,7 +19,7 @@ public class CountThePath {
 		
 		System.out.println("Count="+countPaths(grid, 0, 0));
 		
-		System.out.println("Memorized Count="+countPaths(grid, 0, 0));
+		System.out.println("Memorized Count="+countPathsMemorize(grid, 0, 0));
 		
 	}
 

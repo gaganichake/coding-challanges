@@ -1,9 +1,5 @@
 package com.codingchallanges.array.string;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-
 /*
 Given a String and Array of Integer, Insert comma to the string based on the Array.
 For Example:

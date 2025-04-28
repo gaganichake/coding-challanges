@@ -5,15 +5,13 @@ import java.util.List;
 
 /**
  * composeRanges
- * https://app.codesignal.com/interview-practice/task/cHYqbQ9DiWmejAdeG/description
- *
+ * <a href="https://app.codesignal.com/interview-practice/task/cHYqbQ9DiWmejAdeG/description">composeRanges</a>
+ * <p>
  * Given a sorted integer array that does not contain any duplicates, return a summary of the number ranges it contains.
- *
- * Example
- *
+ * <p>
+ * Example:
  * For nums = [-1, 0, 1, 2, 6, 7, 9], the output should be
  * solution(nums) = ["-1->2", "6->7", "9"].
- *
  */
 public class ComposeRanges {
 

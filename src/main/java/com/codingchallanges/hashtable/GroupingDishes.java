@@ -1,11 +1,7 @@
 package com.codingchallanges.hashtable;
 
-import com.codingchallanges.array.Utility;
-
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static java.lang.System.arraycopy;
 
 /*
  * groupingDishes
@@ -101,9 +97,7 @@ public class GroupingDishes {
 			dishList.addFirst(ingredient);
 		}
 
-		List<String[]> listOfArray = map.values().stream().map(list -> list.toArray(new String[list.size()])).collect(Collectors.toList());
-
-		return listOfArray.toArray(new String[listOfArray.size()][]);
+        return map.values().stream().map(list -> list.toArray(new String[0])).toArray(String[][]::new);
 	}
 
 	static String[][] solution(String[][] dishes) {
@@ -162,8 +156,8 @@ public class GroupingDishes {
 				{"Sandwich", "Salad", "Bread", "Tomato", "Cheese"}};
 
 
-		System.out.println(Utility.printArray(solution(dishes_1)));
-
+//		System.out.println(Utility.printArray(solution(dishes_1)));
+		System.out.println(Arrays.deepToString(solution(dishes_1)));
 
 		String[][] dishes_2 = {{"Pasta", "Tomato Sauce", "Onions", "Garlic"},
 				{"Chicken Curry", "Chicken", "Curry Sauce"},
@@ -172,7 +166,9 @@ public class GroupingDishes {
 				{"Sandwich", "Cheese", "Bread"},
 				{"Quesadilla", "Chicken", "Cheese"}};
 
-		System.out.println(Utility.printArray(solution(dishes_2)));
+//		System.out.println(Utility.printArray(solution(dishes_2)));
+		System.out.println(Arrays.deepToString(solution(dishes_2)));
+
 	}
 
 }

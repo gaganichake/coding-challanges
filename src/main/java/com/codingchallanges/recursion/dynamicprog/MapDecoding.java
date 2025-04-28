@@ -5,17 +5,17 @@ import java.util.Map;
 
 /**
  *  mapDecoding
- *
- *  https://app.codesignal.com/interview-practice/task/7o2Aba2Zep3MJPKQ3/description
- *
+ * <p>
+ *  <a href="https://app.codesignal.com/interview-practice/task/7o2Aba2Zep3MJPKQ3/description">mapDecoding</a>
+ * <p>
  *  A top secret message containing uppercase letters from 'A' to 'Z' has been encoded as numbers using the following mapping:
  *  'A' -> 1
  *  'B' -> 2
  *  ...
  *  'Z' -> 26
- *
+ * <p>
  *  You are an FBI agent and you need to determine the total number of ways that the message can be decoded.
- *
+ * <p>
  *  Since the answer could be very large, take it modulo 109 + 7.
  */
 public class MapDecoding {
@@ -35,7 +35,7 @@ public class MapDecoding {
 
         final int mod = 1000000007;
 
-        if(numString == null || numString.length() == 0 || index == numString.length()) return 1;
+        if(numString == null || numString.isEmpty() || index == numString.length()) return 1;
 
         if(numString.charAt(index) == '0') return 0;
 

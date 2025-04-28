@@ -1,7 +1,6 @@
 package com.codingchallanges.linkedlist;
 
 import java.util.Objects;
-import java.util.Stack;
 
 /*
  * CTCI 2.7

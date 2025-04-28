@@ -1,7 +1,6 @@
 package com.codingchallanges.hashtable;
 
 import java.util.LinkedList;
-import java.util.List;
 
 /* Implement HashTable
  *

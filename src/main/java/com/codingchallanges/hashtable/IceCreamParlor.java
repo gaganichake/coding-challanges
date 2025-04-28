@@ -2,7 +2,6 @@ package com.codingchallanges.hashtable;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 /**

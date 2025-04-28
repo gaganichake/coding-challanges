@@ -15,7 +15,7 @@ public class SparseArray {
     }
 
     /**
-    * This method construcs a map with the collection of Strings and occurrence.
+    * This method constructs a map with the collection of Strings and occurrence.
     */
     private static Map<String, Integer> buildCollectionOfStrings(Scanner scanner, int n) {
         final Map<String, Integer> map = new HashMap<>();

@@ -3,7 +3,7 @@ package com.codingchallanges.tree.binarytree;
 import com.codingchallanges.tree.binarysearchtree.IsBinarySearchTree;
 
 import java.util.List;
-import java.util.function.*;
+import java.util.function.BiFunction;
 
 /*
  * https://www.youtube.com/watch?v=oSWTXtMglKE&t=138sI
