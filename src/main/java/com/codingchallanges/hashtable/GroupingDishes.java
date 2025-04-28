@@ -1,7 +1,6 @@
 package com.codingchallanges.hashtable;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /*
  * groupingDishes
