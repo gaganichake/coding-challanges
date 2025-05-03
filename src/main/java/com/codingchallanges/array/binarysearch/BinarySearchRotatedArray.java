@@ -2,12 +2,12 @@ package com.codingchallanges.array.binarysearch;
 
 import java.util.Arrays;
 
-/*
+/**
  * Find a given element:
  * CTCI 11.3 Given a sorted array of n integers that has been rotated an unknown number of
  * time, write code to find an element in the array. You may assume that the array was
  * originally sorted in increasing order.
- *
+ * <p>
  * Find minimum element:
  * A sorted array has been rotated so that the elements might appear in the order
  * 3, 4, 5, 6, 7, 1, 2. How would you find the minimum element?

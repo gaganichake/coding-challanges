@@ -2,11 +2,11 @@ package com.codingchallanges.array.sort;
 
 import java.util.Arrays;
 
-/*
+/**
  * Make Array Consecutive
- *
- * https://app.codesignal.com/arcade/intro/level-2/bq2XnSr5kbHqpHGJC
- *
+ * <p>
+ * <a href="https://app.codesignal.com/arcade/intro/level-2/bq2XnSr5kbHqpHGJC">ake Array Consecutive</a>
+ * <p>
  * Ratiorg got statues of different sizes as a present from CodeMaster
  * for his birthday, each statue having an non-negative integer size.
  * Since he likes to make things perfect, he wants to arrange them from
@@ -14,12 +14,12 @@ import java.util.Arrays;
  * previous one exactly by 1. He may need some additional statues to be
  * able to accomplish that. Help him figure out the minimum number of
  * additional statues needed.
- *
+ * <p>
  * Example:
- *
+ * <p>
  * For statues = [6, 2, 3, 8], the output should be
  * makeArrayConsecutive2(statues) = 3.
- *
+ * <p>
  * Ratiorg needs statues of sizes 4, 5 and 7.
  */
 public class MakeArrayConsecutive {

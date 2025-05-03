@@ -4,26 +4,26 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
 
-/*
+/**
  * Facebook Coding interview
  * May 29, 2024
- *
+ * <p>
  * Problem 2
- *
+ * <p>
  * [[“NY” : “8”],
  * [“CF” : “5”],
  * [“SF” : “7”]]
- *
+ * <p>
  * 8/20 = 40%
  * 5/20 = 25%
  * 7/20 =  35%
- *
+ * <p>
  * Where 20 is the sum of all weightage 8 +  5 + 7 = 20
  * Implements the function to return the city name, randomly, based on the weightage provided in the table.
  * How you would you avoid the space complexity if the table is provided as an input?
- *
+ * <p>
  * String getRandomCity(String[][] cityTable){
- *
+ * <p>
  * return "city code"
  * }
  */

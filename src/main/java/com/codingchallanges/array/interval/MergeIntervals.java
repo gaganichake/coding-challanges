@@ -4,16 +4,16 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-/*
+/**
  * MergeIntervals
- *
- * https://leetcode.com/problems/merge-intervals/
- *
+ * <p>
+ * <a href="https://leetcode.com/problems/merge-intervals/">merge-intervals</a>
+ * <p>
  * Given an array of intervals where intervals[i] = [start, end],
  * merge all overlapping intervals, and return an array of the
  * non-overlapping intervals that cover all the intervals in the input.
- *
- * Also check MeetingRoomsII: https://leetcode.com/problems/meeting-rooms-ii/
+ * <p>
+ * Also check MeetingRoomsII: <a href="https://leetcode.com/problems/meeting-rooms-ii/">meeting-rooms-ii</a>
  * Also check MaxRAMUtilization
  */
 public class MergeIntervals {

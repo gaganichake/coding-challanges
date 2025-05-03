@@ -3,14 +3,14 @@ package com.codingchallanges.array.sort;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * Quick Sort (Partition Sort)
- *
- * https://www.hackerrank.com/challenges/quicksort1/problem
- *
+ * <p>
+ * <a href="https://www.hackerrank.com/challenges/quicksort1/problem">Quick Sort (Partition Sort)</a>
+ * <p>
  * This challenge is a modified version of the Quick Sort algorithm
  * that only addresses partitioning. It is implemented as follows:
- *
+ * <p>
  * Step 1: Divide
  * Choose some pivot element, p, and partition your unsorted array, arr, into
  * three smaller arrays: left, right, equals and , where each element in left < p,

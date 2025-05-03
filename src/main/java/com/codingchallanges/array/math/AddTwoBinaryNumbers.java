@@ -1,31 +1,30 @@
 package com.codingchallanges.array.math;
 
-/*
+/**
  * Add to binary numbers given as String
- *
+ * <p>
  * Similar problems:
  * 	1. Add two decimal number given (can be given as integer or String)
  * 	2. Add two numbers give as Linked List. Output should also be in Linked List.
- *
+ * <p>
  * Facebook interview question:
- *
+ * <p>
  * Add two binary numbers given to you as strings of "0"s and "1"s.
  * The result should be the string of "0"s and "1"s representing the numbers' sum.
  * The result is allowed to contain one leading zero (for simplicity).
- *
+ * <p>
  * Example 1:
  * input1: 11 -> 3
  * input2 : 111 -> 7
- *
+ * <p>
  *      11
  *     111
  * =  1010
- *
+ * <p>
  * Example 2:
  *       101
  *      1011
  * =   10000
- *
  */
 public class AddTwoBinaryNumbers {
 

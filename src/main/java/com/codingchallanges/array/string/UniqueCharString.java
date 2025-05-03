@@ -3,9 +3,9 @@ package com.codingchallanges.array.string;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
+/**
  * CTCI 1.1
- *
+ * <p>
  * Implement an algorithm to determine if a string has all unique characters.
  */
 public class UniqueCharString {

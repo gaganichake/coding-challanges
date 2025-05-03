@@ -2,11 +2,11 @@ package com.codingchallanges.array.search;
 
 import java.util.Arrays;
 
-/*
+/**
  * Is ZigZag
- *
- * https://app.codesignal.com/
- *
+ * <p>
+ * <a href="https://app.codesignal.com/">Is ZigZag</a>
+ * <p>
  * Find all ZigZag patterns in the array. Set 1 if three consecutive elements are ZigZag,
  * otherwise set 0
  */

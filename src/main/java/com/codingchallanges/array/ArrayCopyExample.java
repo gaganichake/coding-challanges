@@ -3,13 +3,17 @@ package com.codingchallanges.array;
 import java.util.*;
 
 public class ArrayCopyExample {
-    /*
-1. Clone an array int[] array = myArray.clone();
-2. Copy of array, it will return a new array, int[] newArray = Arrays.copyOf(originalArray, newLength);
-3. Copy one array to another array: System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
-4. Create a copy of existing ArrayList: new ArrayList<String>(myList)
-5. Assigns a default value to each element of the array: Arrays.fill(myArray, -1);
-     */
+
+/**
+ * Examples of array conversions to different data sets
+ * 1. Clone an array int[] array = myArray.clone();
+ * 2. Copy of array, it will return a new sub-array based on desired size. All positions start from 0. int[] newArray = Arrays.copyOf(originalArray, newLength);
+ * 3. Copy one array to another array: System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+ * 4. Create a copy of existing ArrayList: new ArrayList<String>(myList)
+ * 5. Assigns a default value to each element of the array: Arrays.fill(myArray, -1);
+ * <p>
+ * <a href="https://www.hackerrank.com/challenges/quicksort2/problem">quicksort2</a>
+ */
 
     public static void main(String[] arg) {
 

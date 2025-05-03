@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
+/**
  * sumOfTwo
- *
- * https://app.codesignal.com/interview-practice/task/Hm98RnqK9Be575yoj/description
- *
+ * <p>
+ * <a href="https://app.codesignal.com/interview-practice/task/Hm98RnqK9Be575yoj/description">sumOfTwo</a>
+ * <p>
  * You have two integer arrays, a and b, and an integer target value v. Determine
  * whether there is a pair of numbers, where one number is taken from a and the other
  * from b, that can be added together to get a sum of v. Return true if such a pair

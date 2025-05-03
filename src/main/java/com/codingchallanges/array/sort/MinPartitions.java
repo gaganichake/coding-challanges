@@ -4,12 +4,27 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/*
-Asked by Walmart on 12/10/2024
-
-Consolidating partitions program, returns the minimum partitions by allocating the space to the partitions.
-  used list contains the space used in the partitions and
-  capacity list shows the capacity of the partitions.
+/**
+ * <a href="https://www.hackerrank.com/challenges/min-partitions">Min Partitions</a>
+ * <p>
+ * 2, 4, 0, 3, 1
+ * 5, 2, 5, 6
+ * <p>
+ * 2 + 4 + 0 + 3 + 1 = 10
+ * <p>
+ * 5 + 2 + 5 + 6 = 18
+ * <p>
+ * Answer: 3
+ *
+ * <p>
+ * <a href="https://www.geeksforgeeks.org/minimum-number-of-partitions-to-allocate-space-in-partitions/">Minimum number of partitions to allocate space in partitions</a>
+ * <p>
+ *
+ * Asked by Walmart on 12/10/2024
+ * <p>
+ * Consolidating partitions program, returns the minimum partitions by allocating the space to the partitions.
+ * used list contains the space used in the partitions and
+ * capacity list shows the capacity of the partitions.
  */
 public class MinPartitions {
 

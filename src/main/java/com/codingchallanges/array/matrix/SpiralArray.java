@@ -2,29 +2,29 @@ package com.codingchallanges.array.matrix;
 
 import com.codingchallanges.array.Utility;
 
-/*
+/**
  * 2D Spiral Array
- *
- * https://www.facebook.com/careers/life/sample_interview_questions
- *
+ * <p>
+ * <a href="https://www.facebook.com/careers/life/sample_interview_questions">2D Spiral Array</a>
+ * <p>
  * Find the pattern and complete the function: int[][] spiral(int n); where n is
  * the size of the 2D array.
- *
+ * <p>
  * Sample Result input = 3
  * Output =
  * 123
  * 894
  * 765
- *
+ * <p>
  * input = 4
  * Output =
  * 01 02 03 04
  * 12 13 14 05
  * 11 16 15 06
  * 10 09 08 07
- *
+ * <p>
  * input = 8
- *
+ * <p>
  * 01 02 03 04 05 06 07 08
  * 28 29 30 31 32 33 34 09
  * 27 48 49 50 51 52 35 10
@@ -33,9 +33,9 @@ import com.codingchallanges.array.Utility;
  * 24 45 58 57 56 55 38 13
  * 23 44 43 42 41 40 39 14
  * 22 21 20 19 18 17 16 15
- *
+ * <p>
  * Solution -
- *
+ * <p>
  * Brute-force:
  * There are two general ways most people try to solve this problem.
  * The most common is to find a pattern of how often you move each four
@@ -43,19 +43,19 @@ import com.codingchallanges.array.Utility;
  * usually has four "for" loops, each going one of the four directions. These
  * kinds of solutions can very easily have bugs if you don't get the pattern
  * exactly right or if you go too far. For example, the 1x1 case.
- *
+ * <p>
  * Backtracking:
  * Another way to solve this problem is to greedily traverse in each direction
  * until you must stop, then turn around and head in the other direction. The
  * sample code below follows this approach and is generally the best way to
  * solve this problem.
- *
+ * <p>
  * Recursion:
  * Note, however, you can also solve this problem using recursion - walk around
  * the boarder and fill out the numbers with each iteration. Then, reduce the
  * problem to a smaller square (reduced n by 2). Continue until you arrive at
  * the base case of 1 or 0.
- *
+ * <p>
  * Explanation (of Backtracking) for 4x4 matrix:
  * input = 4
  * Output =
@@ -63,7 +63,7 @@ import com.codingchallanges.array.Utility;
  * 12(1,0) 13(1,1) 14(1,2) 05(1,3)
  * 11(2,0) 16(2,1) 15(2,3) 06(2,3)
  * 10(3,0) 09(3,1) 08(3,2) 07(3,3)
- *
+ * <p>
  * r, c, dir, val
  * 0  ,   0, 0, 1
  * 0+0, 0+1, 0, 2

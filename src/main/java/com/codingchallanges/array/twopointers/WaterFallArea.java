@@ -1,8 +1,8 @@
-package com.codingchallanges.array.histogram;
+package com.codingchallanges.array.twopointers;
 
-/*
+/**
  * Amazon practice question
- * 
+ * <p>
  * You are given an array of integers which describe elevation at each point in a 2D landscape.
  * For example, the input [ 1 2 3 1 2 4 1 2 1 ] describes a landscape that looks like this:
  *             *      
@@ -21,8 +21,8 @@ package com.codingchallanges.array.histogram;
  *   * * * * * * * * *
  * [ 1 2 3 1 2 4 1 2 1 ]
  * i 0 1 2 3 4 5 6 7 8
- * 
- * Solution credit: https://www.geeksforgeeks.org/trapping-rain-water/
+ * <p>
+ * Solution credit: <a href="https://www.geeksforgeeks.org/trapping-rain-water/">trapping-rain-water</a>
  */
 public class WaterFallArea {
 
@@ -30,7 +30,7 @@ public class WaterFallArea {
 		
 	    // To store the maximum water that can be stored
 		int area = 0;
-	 
+
 	    // For every element of the array except first and last element
 	    for(int i = 1; i < array.length - 1; i++) {
 	         

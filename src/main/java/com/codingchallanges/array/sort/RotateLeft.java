@@ -3,8 +3,8 @@ package com.codingchallanges.array.sort;
 import java.util.Arrays;
 
 /**
- * https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem
- *
+ * <a href="https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem">RotateLeft</a>
+ * <p>
  * Rotate Left <
  */
 public class RotateLeft {

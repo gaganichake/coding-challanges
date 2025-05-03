@@ -1,21 +1,21 @@
 package com.codingchallanges.array.string;
-/*
+/**
  * reverseInParentheses
- * 
- * https://app.codesignal.com/arcade/intro/level-3/9DgaPsE2a7M6M2Hu6
- * 
+ * <p>
+ * <a href="https://app.codesignal.com/arcade/intro/level-3/9DgaPsE2a7M6M2Hu6">reverseInParentheses</a>
+ * <p>
  * Write a function that reverses characters in (possibly nested) parentheses in the input string.
- * 
+ * <p>
  * Input strings will always be well-formed with matching ()s.
- * 
+ * <p>
  * Example:
- * 
+ * <p>
  * For inputString = "(bar)", the output should be solution(inputString) = "rab";
- * 
+ * <p>
  * For inputString = "foo(bar)baz", the output should be solution(inputString) = "foorabbaz";
- * 
+ * <p>
  * For inputString = "foo(bar)baz(blim)", the output should be solution(inputString) = "foorabbazmilb";
- * 
+ * <p>
  * For inputString = "foo(bar(baz))blim", the output should be solution(inputString) = "foobazrabblim". Because "foo(bar(baz))blim" becomes "foo(barzab)blim" and then "foobazrabblim".
  */
 

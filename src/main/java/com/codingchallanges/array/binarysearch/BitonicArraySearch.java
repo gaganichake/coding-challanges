@@ -1,6 +1,6 @@
 package com.codingchallanges.array.binarysearch;
 
-/*
+/**
  * Bitonic Array is an array with increasing values in the beginning and decreasing value at the towards the end.
  * Like a Roller Coaster, Temperature data.
  */

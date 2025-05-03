@@ -1,47 +1,48 @@
 package com.codingchallanges.array.matrix;
 
-/*
-US Bank
-Problem Statement:
-
-Write a Java function that accepts a square integer array as input and returns `true` if the sum of the numbers on
-both diagonals is the same, and `false` otherwise.
-
-Example:
-----------------
-Input1:
-4  2  3
-4  2  8
-10 6  9
-
-(0,0) + (1,1) + (2, 2)
-(0,2) + (1, 1) + (2, 0)
-Output1:
-true
-
-----------------
-Input2:
-----------------
-1  2  3
-4  5  6
-7  8  9
-
-Output2:
-true
-
-----------------
-Input3:
-2  3  4  5
-6  7  8  9
-10 11 12 13
-14 15 16 17
-
-(0,0) + (1,1) + (2, 2) + (3, 3)
-(0,3) + (1, 2) + (2, 1) + (3, 0)
-Output3:
-true
-----------------
+/**
+ * US Bank
+ * Problem Statement:
+ * <p>
+ * Write a Java function that accepts a square integer array as input and returns `true` if the sum of the numbers on
+ * both diagonals is the same, and `false` otherwise.
+ * <p>
+ * Example:
+ * ----------------
+ * Input1:
+ * 4  2  3
+ * 4  2  8
+ * 10 6  9
+ * <p>
+ * (0,0) + (1,1) + (2, 2)
+ * (0,2) + (1, 1) + (2, 0)
+ * Output1:
+ * true
+ * <p>
+ * ----------------
+ * Input2:
+ * ----------------
+ * 1  2  3
+ * 4  5  6
+ * 7  8  9
+ * <p>
+ * Output2:
+ * true
+ * <p>
+ * ----------------
+ * Input3:
+ * 2  3  4  5
+ * 6  7  8  9
+ * 10 11 12 13
+ * 14 15 16 17
+ * <p>
+ * (0,0) + (1,1) + (2, 2) + (3, 3)
+ * (0,3) + (1, 2) + (2, 1) + (3, 0)
+ * Output3:
+ * true
+ * ----------------
  */
+
 public class DiagonalSum {
 
    public static void main(String[] arg) {

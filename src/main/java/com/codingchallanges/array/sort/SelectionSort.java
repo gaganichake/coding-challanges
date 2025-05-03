@@ -4,16 +4,16 @@ import com.codingchallanges.array.Utility;
 
 import java.util.Arrays;
 
-/*
+/**
  * SelectionSort
- *
+ * <p>
  * Time complexity: O(n ^ 2)
  * Space complexity: O(1)
- *
+ * <p>
  * Selection Sort is the child's algorithm: simple but inefficient.
  * Find the smallest element using a linear scan and move it to
  * the front (swapping it with the front element). Then find the
- * second smallest element and move it, again doing a linear scan.
+ * second-smallest element and move it, again doing a linear scan.
  * Continue doing this until all elements are in place.
  */
 public class SelectionSort {

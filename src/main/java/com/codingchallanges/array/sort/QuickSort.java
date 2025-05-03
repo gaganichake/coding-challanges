@@ -4,12 +4,11 @@ import com.codingchallanges.array.Utility;
 
 import java.util.Arrays;
 
-/*
- *
- * https://www.hackerrank.com/challenges/quicksort2/problem
- *
- * https://www.youtube.com/watch?v=SLauY6PpjW4
- *
+/**
+ * <a href="https://www.hackerrank.com/challenges/quicksort2/problem">quicksort2</a>
+ * <p>
+ * <a href="https://www.youtube.com/watch?v=SLauY6PpjW4">QuickSort</a>
+ * <p>
  * Quick Sort is a Divide and Conquer algorithm
  */
 public class QuickSort {

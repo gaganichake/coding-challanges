@@ -1,24 +1,24 @@
 package com.codingchallanges.array.string;
 
-/*
+/**
  * Edit Distance
- *
- * https://leetcode.com/problems/one-edit-distance/
- * https://www.facebook.com/careers/life/sample_interview_questions
- *
+ * <p>
+ * <a href="https://leetcode.com/problems/one-edit-distance/">one-edit-distance</a>
+ * <a href="https://www.facebook.com/careers/life/sample_interview_questions">sample_interview_questions</a>
+ * <p>
  * Write a function that returns whether two words are exactly "one edit" away using the
  * following signature:
- *
+ * <p>
  * boolean OneEditApart(string s1, string s2);
- *
+ * <p>
  * An edit is:
  * - Inserting one character anywhere in the word (including at the beginning and end)
  * - Removing one character
  * - Replacing one character
- *
+ * <p>
  * (This algorithm can be used in a full-text search engine where you want to add searches that
  * are only One Edit Apart from the input key.)
- *
+ * <p>
  * Examples:
  * OneEditApart("cat", "dog") = false
  * OneEditApart("cat", "cats") = true
@@ -26,7 +26,7 @@ package com.codingchallanges.array.string;
  * OneEditApart("cat", "cast") = true
  * OneEditApart("cat", "at") = true
  * OneEditApart("cat", "act") = false
- *
+ * <p>
  * Solution:
  * There are many solutions to this problem. One optimal solution is to walk each string in
  * unison, tracking if a difference has been encountered. If a second difference is

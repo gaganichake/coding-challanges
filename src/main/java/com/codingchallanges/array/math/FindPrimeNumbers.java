@@ -2,14 +2,14 @@ package com.codingchallanges.array.math;
 
 import java.util.Arrays;
 
-/*
+/**
  * The Sieve of Eratosthenes
- * https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
- *
+ * <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">sieve_of_Eratosthenes</a>
+ * <p>
  * Given a number n, write a function that returns the total number of primes up to and including n.
- *
+ * <p>
  *Tests Conditions:
- *
+ * <p>
  *n=-1 -> result=0
  *n=0 -> result=0
  *n=1 -> result=0
@@ -18,7 +18,7 @@ import java.util.Arrays;
  *n=10,000 -> result=1,229
  *n=100,000 -> result=9,592
  *n=1,000,000 -> result=78,498
- *
+ * <p>
  * 2, 3, 5, 7, 11, 13, 17, 19, 21, 23, 27
  */
 

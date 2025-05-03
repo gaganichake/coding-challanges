@@ -2,7 +2,16 @@ package com.codingchallanges.array.matrix;
 
 import java.util.Arrays;
 
-/*
+/**
+ * <a href="https://www.codewars.com/kata/5a3f1c0e8f27f2d9b00000b4/train/java">analyze_brick</a>
+ * <p>
+ * Time complexity: O(n)
+ * Space complexity: O(1)
+ * where n is the number of bricks in the wall
+ *
+ * @author Ashish Kumar
+ * @since 30th Dec, 2024
+ * <p>
 Dec, 2024 - Paypal
 Given a wall and a position, write a function to return how many neighbors the brick at that position has.
 
@@ -68,6 +77,7 @@ n: number of bricks in the wall
 w: wall width
 h: wall height (in layers)
 */
+
 public class Wall {
 
         public static void main(String[] argv) {

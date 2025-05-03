@@ -2,8 +2,8 @@ package com.codingchallanges.array.sort;
 
 import java.util.Arrays;
 
-/*
- * https://www.youtube.com/watch?v=KF2j-9iSf4Q
+/**
+ * <a href="https://www.youtube.com/watch?v=KF2j-9iSf4Q">MergeSort</a>
  */
 public class MergeSort {
 

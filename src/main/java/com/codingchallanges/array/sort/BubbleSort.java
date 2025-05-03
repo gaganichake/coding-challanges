@@ -4,8 +4,8 @@ import com.codingchallanges.array.Utility;
 
 import java.util.Arrays;
 
-/*
- * https://www.youtube.com/watch?v=6Gv8vg0kcHc
+/**
+ * <a href="https://www.youtube.com/watch?v=6Gv8vg0kcHc">BubbleSort</a>
  */
 public class BubbleSort {
 

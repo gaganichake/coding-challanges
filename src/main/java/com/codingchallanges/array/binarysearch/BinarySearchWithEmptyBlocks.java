@@ -2,7 +2,7 @@ package com.codingchallanges.array.binarysearch;
 
 import java.util.Arrays;
 
-/*
+/**
  * CTCI 11.5 Given a sorted array of strings which is interspersed with empty strings, write
  * a method to find the location of a given string
  */

@@ -2,40 +2,40 @@ package com.codingchallanges.array.sort;
 
 import java.util.Arrays;
 
-/*
- * https://www.hackerrank.com/challenges/insertionsort2
- *
+/**
+ * <a href="https://www.hackerrank.com/challenges/insertionsort2">insertionsort2</a>
+ * <p>
  * 7, 6, 5, 2, 4, 3, 1
- *
+ * <p>
  * 7
  * 0
- *
+ * <p>
  * 7, 6
  * 0, 1
  * .  7
  * 0, 1
  * 6, 7
- *
+ * <p>
  * 6, 7, 5
  * 0, 1, 2
  * ., 6, 7
  * 5, 6, 7
- *
+ * <p>
  * 5, 6, 7, 2
  * 0, 1, 3, 4
  * ., 5, 6, 7
  * 2, 5, 6, 7
- *
+ * <p>
  * 2, 5, 6, 7, 4
  * 0, 1, 3, 4, 5
  * 2, ., 5, 6, 7
  * 2, 4, 5, 6, 7
- *
+ * <p>
  * 2, 4, 5, 6, 7, 3
  * 0, 1, 2, 3, 4, 5
  * 2, ., 4, 5, 6, 7
  * 2, 3, 4, 5, 6, 7
- *
+ * <p>
  * 2, 3, 4, 5, 6, 7, 1
  * 0, 1, 2, 3, 4, 5, 6
  * ., 2, 3, 4, 5, 6, 7

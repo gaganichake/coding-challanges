@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/*
+/**
  * Google technical interview (I) Sep/17/2021
- *
+ * <p>
  * Given a String, remove all duplicate character from the String maintaining all
  * unique characters in lexicographically order.
  */

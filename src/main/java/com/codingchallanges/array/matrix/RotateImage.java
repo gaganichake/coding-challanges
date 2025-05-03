@@ -2,21 +2,21 @@ package com.codingchallanges.array.matrix;
 
 import com.codingchallanges.array.Utility;
 
-/*
+/**
  * rotateImage
- *
- * https://app.codesignal.com/interview-practice/task/5A8jwLGcEpTPyyjTB/description
- *
+ * <p>
+ * <a href="https://app.codesignal.com/interview-practice/task/5A8jwLGcEpTPyyjTB/description">rotateImage</a>
+ * <p>
  * You are given an n x n 2D matrix that represents an image. Rotate the image by
  * 90 degrees (clockwise).
- *
+ * <p>
  * Note: Try to solve this task in-place (with O(1) additional memory), since this
  * is what you'll be asked to do during an interview.
- *
+ * <p>
  * Example -
- *
+ * <p>
  * Input:
- *
+ * <p>
  * a:
  * [[1,2,3],
  * [4,5,6],

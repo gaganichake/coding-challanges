@@ -2,9 +2,9 @@ package com.codingchallanges.array.sort;
 
 import java.util.*;
 
-/*
+/**
  * CTCI 11.2
- *
+ * <p>
  * Write a method to sort an array of strings so that all the anagrams are next to each other.
  * Note: The strings in the result array do not need to be fully sorted.
  */

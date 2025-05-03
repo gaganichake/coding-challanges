@@ -3,13 +3,13 @@ package com.codingchallanges.array.slidingwindow;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/*
- * https://leetcode.com/problems/subarray-sum-equals-k/
- *
+/**
+ * <a href="https://leetcode.com/problems/subarray-sum-equals-k/">subarray-sum-equals-k</a>
+ * <p>
  * Given an array of integers and an integer k, you need to
  * find the total number of continuous sub-arrays whose sum
  * equals to k.
- *
+ * <p>
  * Also see TwoSumSingleArray
  */
 public class SubarraySum {

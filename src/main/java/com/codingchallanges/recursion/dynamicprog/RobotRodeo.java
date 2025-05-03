@@ -49,7 +49,7 @@ public class RobotRodeo {
 //				left++;
 //				i++;
 //			}
-//			
+//			F
 //			if(i+2 < command.length() && command.substring(i, i + 2) == "RG") {
 //				right++;
 //				i++;

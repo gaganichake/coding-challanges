@@ -2,9 +2,9 @@ package com.codingchallanges.array.sort;
 
 import java.util.*;
 
-/*
+/**
  * Time complexity: O(w * n) where n is the number of keys, and w is the key length.
- *
+ * <p>
  * Space complexity: O(w + n)
  */
 public class RadixSort {

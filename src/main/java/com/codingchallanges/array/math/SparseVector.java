@@ -3,13 +3,13 @@ package com.codingchallanges.array.math;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
- * https://leetcode.com/problems/dot-product-of-two-sparse-vectors/
- *
+/**
+ * <a href="https://leetcode.com/problems/dot-product-of-two-sparse-vectors/">dot-product-of-two-sparse-vectors</a>
+ * <p>
  * A sparse vector is a vector that has mostly zero values, you should
  * store the sparse vector efficiently and compute the dot product
  * between two SparseVector.
- *
+ * <p>
  * nums1.length == nums2.length
  */
 public class SparseVector {

@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-/*
+/**
  * Oracle Coding Interview: Oct/29/2021
  *
  * Calculate the maximum RAM utilization from the following rages
@@ -15,8 +15,8 @@ import java.util.List;
  * [1, 1, 3]
  * [4, 5, 6]
  *
- * Also see MergeIntervals: https://leetcode.com/problems/merge-intervals/
- * Also check opposite problem of this problem MeetingRoomsII: https://leetcode.com/problems/meeting-rooms-ii/
+ * Also see MergeIntervals: <a href="https://leetcode.com/problems/merge-intervals/">merge-intervals</a>
+ * Also check opposite problem of this problem MeetingRoomsII: <a href="https://leetcode.com/problems/meeting-rooms-ii/">meeting-rooms-ii</a>
  */
 public class MaxRAMUtilization {
 

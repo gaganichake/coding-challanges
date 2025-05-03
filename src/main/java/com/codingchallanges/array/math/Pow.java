@@ -1,6 +1,6 @@
 package com.codingchallanges.array.math;
 
-/*
+/**
  * Calculate x to the power of n
  */
 public class Pow {

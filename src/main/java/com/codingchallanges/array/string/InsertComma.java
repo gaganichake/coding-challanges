@@ -1,20 +1,20 @@
 package com.codingchallanges.array.string;
 
-/*
+/**
 Given a String and Array of Integer, Insert comma to the string based on the Array.
+ * <p>
 For Example:
-
+ * <p>
    String = "AS123-asdmnas-123lasdknw13==121232139sdmjlasd12321llall123213213klasdlasdsadas"
    int [] = [4, 5, 2, 10, 2, 6, 8]
 Output: "AS12,3-asd,mn,as-123lasd,kn,w13==1,21232139,sdmjlasd12321llall123213213klasdlasdsadas"
-
-
+ * <p>
 Another Example:
-
+ * <p>
    String = "AS123-asdmnas-123lasdknw13==121232"
    int [] = [4, 5, 2, 10, 2, 6, 8]
+ * <p>
 Output: "AS12,3-asd,mn,as-123lasd,kn,w13==1,21232"
-
  */
 public class InsertComma {
 

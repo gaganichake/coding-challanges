@@ -2,11 +2,11 @@ package com.codingchallanges.array.math;
 
 import java.util.Arrays;
 
-/*
+/**
  * boundedRatio
- *
+ * <p>
  * CodeSignal
- *
+ * <p>
  * You are given an array of integers a and two integer l and r.
  * Your task is to calculate a boolean array b, where b[i] = true
  * if there exist an integer x, such that a[i] = (i + 1) * x and

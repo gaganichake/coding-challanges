@@ -1,7 +1,7 @@
 package com.codingchallanges.array.math;
 
-/*
- * https://leetcode.com/problems/integer-to-english-words/
+/**
+ * <a href="https://leetcode.com/problems/integer-to-english-words/">integer-to-english-words</a>
  */
 public class NumberToWords {
 

@@ -2,14 +2,12 @@ package com.codingchallanges.array.sort;
 
 import java.util.Arrays;
 
-/*
+/**
  * Merge Sort Part 1
  */
 public class MergeSortPart1 {
 
-	/*
-	 * Time complexity O(n)
-	 */
+	// Time complexity O(n)
 	public static int[] mergeTwoSortedArrays(int[] a, int[] b) {
 
 		int[] c = new int[a.length + b.length];

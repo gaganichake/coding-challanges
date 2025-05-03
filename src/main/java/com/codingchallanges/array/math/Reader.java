@@ -1,8 +1,8 @@
 package com.codingchallanges.array.math;
 
 /**
- * https://leetcode.com/problems/read-n-characters-given-read4/
- *
+ * <a href="https://leetcode.com/problems/read-n-characters-given-read4/">read-n-characters-given-read4</a>
+ * <p>
  * The read4 API is defined in the parent class Reader4.
  *     int read4(char[] buf4);
  */

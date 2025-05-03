@@ -3,9 +3,9 @@ package com.codingchallanges.array.math;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-/*
- * https://www.hackerrank.com/challenges/a-very-big-sum/problem
- *
+/**
+ * <a href="https://www.hackerrank.com/challenges/a-very-big-sum/problem">a-very-big-sum</a>
+ * <p>
  * Time complexity: O(n)
  * Space complexity: O(n)
  * where n is the length of input array

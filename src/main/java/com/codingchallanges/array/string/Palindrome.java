@@ -1,27 +1,27 @@
 package com.codingchallanges.array.string;
 
-/*
+/**
  * checkPalindrome
- *
- * https://app.codesignal.com/arcade/intro/level-1/s5PbmwxfECC52PWyQ
+ * <p>
+ * <a href="https://app.codesignal.com/arcade/intro/level-1/s5PbmwxfECC52PWyQ">checkPalindrome</a>
  * Given the string, check if it is a palindrome.
+ * <p>
  *
- *
- * https://leetcode.com/problems/valid-palindrome/
+ * <a href="https://leetcode.com/problems/valid-palindrome/">valid-palindrome</a>
  * A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and
  * removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric
  * characters include letters and numbers. (Simply asking to ignore cases and special characters
  * but accepting letters and numbers)
- *
+ * <p>
  *
  * *************************
  * 11/30/2021 - MetLife
  * Find if the give string is a Palindrome
  * Example: Borro or Rob?
  * Ignore cases, spaces and special characters
- *
+ * <p>
  * Below all approaches use Two Pointers.
- *
+ * <p>
  * Another good solution of this problem is, you just reverse the input String and compare
  * the new String with the original one. Java StringBuilder has an build-in method reverse()
  * to reverse the underling string and return a new one.

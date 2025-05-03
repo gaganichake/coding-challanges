@@ -4,12 +4,12 @@ import com.codingchallanges.array.Utility;
 
 import java.util.Arrays;
 
-/*
- * https://www.hackerrank.com/challenges/insertionsort1/problem
- *
+/**
+ * <a href="https://www.hackerrank.com/challenges/insertionsort1/problem">insertionsort1</a>
+ * <p>
  * Given a sorted list with an unsorted number in the rightmost
  * cell, can you write some simple code to insert into the array so that it remains sorted?
- *
+ * <p>
  * [1, 2, 4, 5, 3]
  */
 public class InsertionSortPart1 {

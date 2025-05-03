@@ -1,8 +1,8 @@
 package com.codingchallanges.array.string;
 
-/*
+/**
  * Write a function to revere a String.
- *
+ * <p>
  * Amazon interview question: live coding challenge.
  * September 18, 2020
  */

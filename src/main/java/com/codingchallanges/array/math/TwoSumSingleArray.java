@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
- * https://leetcode.com/problems/two-sum/
- *
- * Compare with https://www.hackerrank.com/challenges/icecream-parlor/problem
- *
+/**
+ * <a href="https://leetcode.com/problems/two-sum/">two-sum</a>
+ * <p>
+ * Compare with <a href="https://www.hackerrank.com/challenges/icecream-parlor/problem">icecream-parlor</a>
+ * <p>
  * Asked in Amazon interview - 08/23/2021
  * Given an array of integers and an integer number. Find indices of numbers in the array
  * whose sum is equal to the integer number in input.
- *
+ * <p>
  * Questions on Time complexity, improvements, revised Time complexity after improvement.
  */
 public class TwoSumSingleArray {

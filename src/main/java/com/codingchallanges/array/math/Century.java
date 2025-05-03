@@ -1,14 +1,14 @@
 package com.codingchallanges.array.math;
 
-/*
+/**
  * centuryFromYear
- *
- * https://app.codesignal.com/arcade/intro/level-1/egbueTZRRL5Mm4TXN
- *
+ * <p>
+ * <a href="https://app.codesignal.com/arcade/intro/level-1/egbueTZRRL5Mm4TXN">centuryFromYear</a>
+ * <p>
  * Given a year, return the century it is in. The first century spans
  * from the year 1 up to and including the year 100, the second - from
  * the year 101 up to and including the year 200, etc
- *
+ * <p>
  * Example
  * For year = 1905, the output should be
  * solution(year) = 20;

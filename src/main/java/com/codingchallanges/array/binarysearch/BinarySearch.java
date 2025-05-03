@@ -1,11 +1,11 @@
 package com.codingchallanges.array.binarysearch;
 
-/*
+/**
  * Binary Search is a Divide and Conquer algorithm
  * Condition: The array must already be a sorted array.
  * Time complexity: O(log2 n)
  * Where 2 is a base. Base does not actually matter here
- * Base is 2 because it always divide the next set of elements by 2.
+ * Base is 2 because it always divides the next set of elements by 2.
  * Space complexity: O(1)
  */
 public class BinarySearch {

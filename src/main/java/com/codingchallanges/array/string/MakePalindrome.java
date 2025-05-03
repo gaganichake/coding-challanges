@@ -1,15 +1,15 @@
 package com.codingchallanges.array.string;
 
-/*
+/**
  * Given a string s, return true if the s can be palindrome after deleting at
  * most one character from it.
- *
- * https://leetcode.com/problems/valid-palindrome-ii/
- *
+ * <p>
+ * <a href="https://leetcode.com/problems/valid-palindrome-ii/">valid-palindrome-ii</a>
+ * <p>
  * Approach #1: Brute Force : For each index i in the given string, let's remove that
  * character, then check if the resulting string is a palindrome. If it is, (or if the
  * original string was a palindrome), then we'll return true
- *
+ * <p>
  * Approach #2: Greedy : If the beginning and end characters of a string are the same
  * (ie. s[0] == s[s.length - 1]), then whether the inner characters are a palindrome
  * (s[1], s[2], ..., s[s.length - 2]) uniquely determines whether the entire string
