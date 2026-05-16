@@ -53,7 +53,7 @@ public class ShortedDistanceBFSArray {
     public static void main(String[] args) {
 
         Node startNode = new Node(1);
-        int nodes = 5;
+        int nodes = 4;
         int NumberOfEdges = 4;
 
         // A Matrix representation of graph

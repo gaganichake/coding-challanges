@@ -2,6 +2,8 @@ package com.codingchallanges.array.matrix;
 
 import com.codingchallanges.array.Utility;
 
+import java.util.Arrays;
+
 /**
  * rotateImage
  * <p>
@@ -21,7 +23,7 @@ import com.codingchallanges.array.Utility;
  * [[1,2,3],
  * [4,5,6],
  * [7,8,9]]
- *
+ * <p>
  * Output:
  * [[7,4,1],
  * [8,5,2],
@@ -54,7 +56,6 @@ public class RotateImage {
 					{4,5,6},
   					{7,8,9}};
 		System.out.println(Utility.printArray(rotateImage(a)));
-
 	}
 
 }

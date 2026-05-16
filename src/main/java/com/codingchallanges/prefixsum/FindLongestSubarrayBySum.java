@@ -26,7 +26,7 @@ public class FindLongestSubarrayBySum {
     }
 
     //Works with 100% test cases but causes execution time error with large data set
-    int[] findLongestSubarrayBySum(int s, int[] arr) {
+    int[] findLongestSubarrayBySumV1(int s, int[] arr) {
 
         int[] prefixSum = new int[arr.length + 1];
         SortedMap<Integer, int[]> map = new TreeMap<>();

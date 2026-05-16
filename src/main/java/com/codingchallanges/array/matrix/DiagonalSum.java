@@ -1,7 +1,7 @@
 package com.codingchallanges.array.matrix;
 
 /**
- * US Bank
+ * US Bank, December 2024
  * Problem Statement:
  * <p>
  * Write a Java function that accepts a square integer array as input and returns `true` if the sum of the numbers on
@@ -72,6 +72,15 @@ public class DiagonalSum {
 }
 
 /*
+ * November 2024
+ * String comparison in Java
+ *
+ * In Java, string comparison can be done using the `==` operator or the `.equals()` method.
+ * The `==` operator checks if two references point to the same object in memory, while
+ * the `.equals()` method checks if two strings have the same content.
+ *
+ * Example:
+ *
 public class StringComparison {
     public static void main(String[] args) {
         String s1 = "Java";

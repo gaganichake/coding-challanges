@@ -22,9 +22,8 @@ public class MatrixElementsSum {
 
 	    int sum = 0;
 		int length = matrix[0].length;
-		int depth = matrix.length;//
 
-	    for(int colIndex = 0; colIndex < length; colIndex++){
+        for(int colIndex = 0; colIndex < length; colIndex++){
 
 			for (int[] row : matrix) {
 

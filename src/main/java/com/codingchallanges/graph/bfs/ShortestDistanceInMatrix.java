@@ -1,4 +1,4 @@
-package com.codingchallanges.graph;
+package com.codingchallanges.graph.bfs;
 
 public class ShortestDistanceInMatrix {
 
