@@ -4,6 +4,9 @@ package com.codingchallanges.prefixsum;
  * There is a biker going on a road trip. The road trip consists of n + 1 points at different altitudes.
  * The biker starts his trip on point 0 with altitude equal 0.
  * ---
+ * You are given an integer array gain where gain[i] is the net gain in altitude between points i and i + 1 for all
+ * (0 <= i < gain.length). Return the highest altitude of a point.
+ * ---
  * Example 1:
  * Input: gain = [-5,1,5,0,-7]
  * Output: 1
@@ -17,12 +20,8 @@ package com.codingchallanges.prefixsum;
  * <a href="https://leetcode.com/problems/find-the-highest-altitude">find-the-highest-altitude</a>
  */
 public class LargestAltitude {
-    /**
-     * You are given an integer array gain where gain[i] is the net gain in altitude between points i and i + 1 for all
-     * (0 <= i < gain.length). Return the highest altitude of a point.
-     *
-     */
-    public int largestAltitude(int[] gain) {
+
+    public static int largestAltitude(int[] gain) {
 
         int[] prefixSum = new int[gain.length+1];
         prefixSum[0] = 0;
@@ -30,10 +29,15 @@ public class LargestAltitude {
 
         for(int i = 0; i < gain.length; i++){
             prefixSum[i+1] = prefixSum[i] + gain[i];
-            if(prefixSum[i+1] > highestAltitude)
-                highestAltitude = prefixSum[i+1];
+            highestAltitude = Math.max(highestAltitude, prefixSum[i+1]);
         }
 
         return highestAltitude;
+    }
+
+    public static void main(String[] args) {
+        int[] gain = {-5,1,5,0,-7};
+
+        System.out.println(largestAltitude(gain));
     }
 }

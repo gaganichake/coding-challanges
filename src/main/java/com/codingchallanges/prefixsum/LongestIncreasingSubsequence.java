@@ -11,7 +11,7 @@ public class LongestIncreasingSubsequence {
 	// This solution is different from given in the book
 	public static int[] longestIncreasingSequence(int[] array){
 
-		//Similar to prefixSum technique, using sum of length instead. Using array.length instead of array.length - 1
+		//Similar to prefixSum technique, using length to sum instead to value.
 		int[] prefixLength = new int[array.length];
 		Arrays.fill(prefixLength, 0);
 

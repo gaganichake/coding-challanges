@@ -10,7 +10,7 @@ import java.util.TreeMap;
  *
  * https://app.codesignal.com/interview-practice/task/izLStwkDr5sMS9CEm/description
  *
- * You have an unsorted array arr of non-negative integers and a number s. Find a longest
+ * You have an unsorted array arr of non-negative integers and a number s. Find the longest
  * contiguous subarray in arr that has a sum equal to s. Return two integers that represent
  * its inclusive bounds. If there are several possible answers, return the one with the
  * smallest left bound. If there are no answers, return [-1].
@@ -21,12 +21,12 @@ import java.util.TreeMap;
 public class FindLongestSubarrayBySum {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
+        int[] inputArr = {2, 0, 1, 3, 2, 1, 2, 3};
+        System.out.println(Arrays.toString(findLongestSubarrayBySumV2(5, inputArr)));
     }
 
-    //Works with 100% test cases but causes execution time error with large data set
-    int[] findLongestSubarrayBySumV1(int s, int[] arr) {
+    // O(N x N) solution works with 100% test cases but causes execution time error with large data set
+    static int[] findLongestSubarrayBySumV(int s, int[] arr) {
 
         int[] prefixSum = new int[arr.length + 1];
         SortedMap<Integer, int[]> map = new TreeMap<>();
@@ -49,81 +49,75 @@ public class FindLongestSubarrayBySum {
                 }
             }
         }
-
-        int[] a = {-1};
-
-        return map.isEmpty() ? a : map.get(map.lastKey());
+        System.out.println(Arrays.toString(prefixSum));
+        return map.isEmpty() ? new int[]{-1} : map.get(map.lastKey());
     }
 
-    //This is an optimized algorithm of the above approach.
-    int[] findLongestSubarrayBySumV2(int s, int[] arr) {
+    // O(N) This is an optimized algorithm of the above approach.
+    static int[] findLongestSubarrayBySumV2(int s, int[] arr) {
 
         int[] prefixSum = new int[arr.length + 1];
-        int max = 0;
+        int length = 0;
         int[] result = new int[2];
 
         for (int i = 0; i < arr.length; i++) {
 
             prefixSum[i + 1] = prefixSum[i] + arr[i];
         }
+        System.out.println(Arrays.toString(prefixSum));
 
         for (int i = 1; i < prefixSum.length; i++) {
 
             if (prefixSum[i] == s) {
-                max = i;
-                result[0] = 1;
-                result[1] = i;
+                length = i;
+                result[0] = 1; // left index
+                result[1] = i; // right index
             }
 
             int leftIndex = Arrays.binarySearch(prefixSum, prefixSum[i] - s);
 
             if (leftIndex > -1) {
-                if (max < i - leftIndex) {
-                    max = i - leftIndex;
-                    result[0] = leftIndex + 1;
-                    result[1] = i;
+                if (length < i - leftIndex) {
+                    length = i - leftIndex;
+                    result[0] = leftIndex + 1; // left index
+                    result[1] = i; // right index
                 }
             }
         }
 
-        int[] a = {-1};
-
-        return max != 0 ? result : a;
+        return length == 0 ? new int[]{-1} : result;
     }
 
-    //This is even more optimized algorithm of the above approach.
+    //This is a HashMap implementation of the above approach.
     //Credit: https://github.com/edyluisrey/Codefights-Algorithms
-    int[] findLongestSubarrayBySumV3(int s, int[] arr) {
+    static int[] findLongestSubarrayBySumV3(int s, int[] arr) {
 
         HashMap<Integer, Integer> map = new HashMap<>();//Use for prefix sum
-        int max = 0;
+        int length = 0;
         int sum = 0;
-        int[] re = new int[2];
+        int[] result = new int[2];
 
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
             if (sum == s) {
-                max = i + 1;
-                re[0] = 1;
-                re[1] = i + 1;
+                length = i + 1;
+                result[0] = 1;
+                result[1] = i + 1;
             }
             if (map.containsKey(sum - s)) {
-                if (max < i - map.get(sum - s)) {
-                    max = i - map.get(sum - s);
-                    re[0] = map.get(sum - s) + 2;
-                    re[1] = i + 1;
+                if (length < i - map.get(sum - s)) {
+                    length = i - map.get(sum - s);
+                    result[0] = map.get(sum - s) + 2;
+                    result[1] = i + 1;
                 }
             }
             map.put(sum, i);
         }
 
         //System.out.println("max:"+max);
+        System.out.println(map);
 
-        if (max == 0)
-            return new int[]{-1};
-        else
-            return re;
-
+        return length == 0 ? new int[]{-1} : result;
     }
 
 }

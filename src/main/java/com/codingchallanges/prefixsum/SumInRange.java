@@ -7,7 +7,7 @@ package com.codingchallanges.prefixsum;
  *
  * You have an array of integers nums and an array queries, where queries[i] is a pair
  * of indices (0-based). Find the sum of the elements in nums from the indices at
- * queries[i][0] to queries[i][1] (inclusive) for each query, then add all of the sums
+ * queries[i][0] to queries[i][1] (inclusive) for each query, then add all the sums
  * for all the queries together. Return that number modulo 10^9 + 7
  *
  * Example
@@ -52,9 +52,9 @@ public class SumInRange {
 	    int startIndexOfNums, endIndexOfNums;
 		for (int[] query : queries) {
 
-			startIndexOfNums = query[0];
-			endIndexOfNums = query[1];
-			sum += prefixSum[endIndexOfNums + 1] - prefixSum[startIndexOfNums + 1 - 1];
+			startIndexOfNums = query[0] + 1;
+			endIndexOfNums = query[1] + 1;
+			sum += prefixSum[endIndexOfNums] - prefixSum[startIndexOfNums - 1];
 			//Need to modulo the intermediate results (not only the final sum), in order to avoid an integer overflow.
 			//Distributive property: (a + b) % n = [(a % n) + (b % n)] % n
 			sum = Math.floorMod(sum, mod);

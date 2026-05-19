@@ -1,4 +1,4 @@
-package com.codingchallanges;
+package com.codingchallanges.tree.binarytree;
 
 import java.util.ArrayList;
 import java.util.List;
