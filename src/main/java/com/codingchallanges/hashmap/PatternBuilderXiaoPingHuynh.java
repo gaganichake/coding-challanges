@@ -1,4 +1,4 @@
-package com.codingchallanges.hashtable;
+package com.codingchallanges.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import java.util.Map;
  * 1. check that equal strings have the same pattern letter
  * 2. patterns cannot be shared between strings
  */
-// No passing all tests
+// Not passing all tests
 public class PatternBuilderXiaoPingHuynh {
 
     // returns true if strings follow the pattern order,

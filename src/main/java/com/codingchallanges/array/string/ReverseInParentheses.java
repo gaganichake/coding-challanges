@@ -42,9 +42,35 @@ public class ReverseInParentheses {
 		return reverseInParentheses(sb.toString());
 	}
 
+	// New approach
+	private static String reverseInParentheses2(String inputString) {
+
+		if(!inputString.contains("(")) return inputString;
+
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < inputString.length(); i++) {
+
+			char ch = inputString.charAt(i);
+
+			if(ch == ')') {
+				String substring = sb.substring(sb.lastIndexOf("(")+1, sb.length());
+//                System.out.println("Substring: " + substring);
+				sb.replace(sb.lastIndexOf("("), sb.length(), new StringBuilder(substring).reverse().toString());
+			} else {
+				sb.append(ch);
+			}
+		}
+//        System.out.println("Intermediate: " + sb);
+		return reverseInParentheses(sb.toString());
+	}
+
 	public static void main(String[] args) {
 
-		System.out.println(reverseInParentheses("(bar)"));
+		System.out.println("Output: " + reverseInParentheses2("(bar)")); // Output: "rab"
+		System.out.println("Output: " + reverseInParentheses2("foo(bar)baz")); // Output: "foorabbaz"
+		System.out.println("Output: " + reverseInParentheses2("foo(bar)baz(blim)")); // Output: "foorabbazmilb"
+		System.out.println("Output: " + reverseInParentheses2("foo(bar(baz))blim")); // Output: "foobazrabblim"
 
 	}
 

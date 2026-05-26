@@ -1,6 +1,6 @@
 package com.codingchallanges;
 
-import com.codingchallanges.hashtable.PatternBuilderJonatanMartinez;
+import com.codingchallanges.hashmap.PatternBuilderJonatanMartinez;
 import org.junit.jupiter.api.Test;
 
 public class PatternBuilderJonatanMartinezTest {

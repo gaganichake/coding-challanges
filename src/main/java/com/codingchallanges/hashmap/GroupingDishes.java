@@ -1,4 +1,4 @@
-package com.codingchallanges.hashtable;
+package com.codingchallanges.hashmap;
 
 import java.util.*;
 

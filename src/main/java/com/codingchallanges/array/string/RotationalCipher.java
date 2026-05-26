@@ -43,38 +43,57 @@ package com.codingchallanges.array.string;
  */
 public class RotationalCipher {
 
-	public static String rotationalCipher(String input, int rotationFactor) {
+	private static String rotationalCipher(String s, int rotation) {
 
-		int digitFactor = rotationFactor % 10;
-		int alphaFactor = rotationFactor % 26;
-		StringBuilder result = new StringBuilder(input);
+		StringBuilder sb = new StringBuilder(s);
 
-		for (int i = 0; i < result.length(); i++) {
+		for (int i = 0; i < s.length(); i++) {
 
-			if (Character.isLetter(result.charAt(i))) {
+			char ch = s.charAt(i);
 
-				char newChar = (char) (result.charAt(i) + alphaFactor);
-				if (Character.isLowerCase(result.charAt(i)) && newChar > 'z' || Character.isUpperCase(result.charAt(i)) && newChar > 'Z')
-					newChar -= 26;
-
-				result.replace(i, i + 1, (newChar) + "");
+			if (Character.isAlphabetic(ch)) {
+				ch = nextAlphabet(ch, rotation);
 			}
 
-			if (Character.isDigit(result.charAt(i))) {
-
-				char newDig = (char) (result.charAt(i) + digitFactor);
-				if (newDig > '9')
-					newDig -= 10;
-
-				result.replace(i, i + 1, (newDig) + "");
+			if (Character.isDigit(ch)) {
+				ch = nextDigit(ch, rotation);
 			}
 
+			sb.replace(i, i + 1, Character.toString(ch));
 		}
-		return result.toString();
+		return sb.toString();
+	}
+
+
+	private static char nextAlphabet(int ch, int rotation) {
+
+		rotation = rotation % 26;
+
+		if (Character.isLowerCase(ch)) {
+			ch += rotation;
+			if (ch > 'z') ch -= 26;
+		} else {
+			ch +=rotation;
+			if (ch > 'Z') ch -= 26;
+		}
+
+		return (char)ch;
+	}
+
+	private static char nextDigit(int ch, int rotation) {
+
+		rotation = rotation % 10;
+
+		int digit = Character.getNumericValue(ch);
+		digit += rotation;
+		if (digit > 9) digit -= 10;
+
+		return String.valueOf(digit).charAt(0);
 	}
 
 	public static void main(String[] args) {
 
+		System.out.println(rotationalCipher("Zebra-493?", 3)); // expected = "Cheud-726?";
 		System.out.println(rotationalCipher("All-convoYs-9-be:Alert1.", 4)); // expected = "Epp-gsrzsCw-3-fi:Epivx5.";
 		System.out.println(rotationalCipher("abcdZXYzxy-999.@", 200)); // expected = "stuvRPQrpq-999.@";
 	}

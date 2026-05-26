@@ -1,6 +1,6 @@
 package com.codingchallanges;
 
-import com.codingchallanges.hashtable.AreFollowingPatterns;
+import com.codingchallanges.hashmap.AreFollowingPatterns;
 import org.junit.jupiter.api.Test;
 
 public class PatternBuilderTest {

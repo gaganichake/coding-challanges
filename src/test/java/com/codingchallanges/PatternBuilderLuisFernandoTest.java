@@ -1,6 +1,6 @@
 package com.codingchallanges;
 
-import com.codingchallanges.hashtable.PatternBuilderLuisFernando;
+import com.codingchallanges.hashmap.PatternBuilderLuisFernando;
 import org.junit.jupiter.api.Test;
 
 public class PatternBuilderLuisFernandoTest {

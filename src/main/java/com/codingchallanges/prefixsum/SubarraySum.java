@@ -1,4 +1,4 @@
-package com.codingchallanges.array.slidingwindow;
+package com.codingchallanges.prefixsum;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,33 +42,6 @@ public class SubarraySum {
         return total;
     }
 
-//    public int subarraySum(int[] nums, int k) {
-//
-//        int count = 0;
-//
-//        for(int i = 0; i < nums.length; i++){
-//
-//               count+=subarraySum(nums, i, k);
-//
-//           }
-//
-//           return count;
-//       }
-//
-//       private int subarraySum(int[] nums, int start, int k){
-//
-//           int sum = 0;
-//           int count = 0;
-//
-//           for(int i = start; i < nums.length; i++){
-//
-//               sum+=nums[i];
-//
-//               if(sum == k) count++;
-//           }
-//           return count;
-//       }
-
 	/*
 	 * Best performance
 	 * Time complexity: O(n)
@@ -93,29 +66,33 @@ public class SubarraySum {
         return count;
     }
 
-    //Not working
+	/*
+	 * Prefix sum with array-based counter approach
+	 * Time complexity: O(n)
+	 * Space complexity: O(n)
+	 */
     public static int subarraySum3(int[] nums, int k) {
 
         int count = 0;
         int[] prefixSum = new int[nums.length + 1];
+        HashMap<Integer, Integer> counter = new HashMap<>(); // prefix sum -> count
+
+        counter.put(0, 1); // Base case: empty prefix
 
 	    for(int i = 0; i < nums.length; i++){
 
 	    	prefixSum[i+1] = prefixSum[i] + nums[i];
 
-			if(prefixSum[i] == k) {
-				count++;
-			}
+	    	// Check if (currentPrefixSum - k) exists in counter
+	    	int target = prefixSum[i+1] - k;
+	    	count += counter.getOrDefault(target, 0);
+
+	    	// Add current prefix sum to counter
+	    	counter.put(prefixSum[i+1], counter.getOrDefault(prefixSum[i+1], 0) + 1);
 		}
-
-        for(int i = 1; i < prefixSum.length; i++){
-
-            int lastElement = prefixSum[prefixSum.length - 1];
-            if(lastElement - prefixSum[i] == k) {
-                count++;
-            }
-        }
         System.out.println("prefixSum = " + Arrays.toString(prefixSum));
+
+
         return count;
     }
 

@@ -74,7 +74,7 @@ public class MeetingRoomsII {
         LinkedList<int[]> mergedIntervals = new LinkedList<>();
 
         for(int[] interval : intervals){
-			System.out.println("rooms = " + rooms);
+//			System.out.println("rooms = " + rooms);
             // if the list of merged intervals is empty or if the current
             // interval does not overlap with the previous, simply append it.
             if(mergedIntervals.isEmpty() || mergedIntervals.getLast()[end] <= interval[start]){
@@ -90,8 +90,8 @@ public class MeetingRoomsII {
     }
 
 	public static void main(String[] args) {
-//		int[][] intervals = { {0, 30}, {5, 10}, {15, 20} };
-		int[][] intervals = { {7, 10}, {2, 4} };
+		int[][] intervals = { {0, 30}, {5, 10}, {15, 20} };
+//		int[][] intervals = { {7, 10}, {2, 4} };
 
 		System.out.println(minMeetingRooms(intervals));
 		System.out.println(minMeetingRoomsV2(intervals));

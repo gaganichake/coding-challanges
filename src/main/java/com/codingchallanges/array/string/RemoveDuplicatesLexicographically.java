@@ -25,7 +25,7 @@ public class RemoveDuplicatesLexicographically {
 			map.put(c, list);
 		}
 
-		System.out.println(map);
+//		System.out.println(map);
 
 		for(int i = 0; i < s.length()-1; i++) {
 
@@ -45,7 +45,7 @@ public class RemoveDuplicatesLexicographically {
 			}
 		}
 
-		System.out.println(map);
+//		System.out.println(map);
 
 		char[] charArray = new char[s.length()];//I originally used "new char[map.size()];" in the interview. That was the only mistake.
 
@@ -64,27 +64,39 @@ public class RemoveDuplicatesLexicographically {
 		return new String(charArray);
 	}
 
+	// Most accurate
+	private static String removeDuplicatesLexicographically2(String s) {
+
+		if (s.length() == 1) return s;
+
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+
+			if (sb.indexOf(String.valueOf(c)) > -1) continue;
+
+			if (!s.substring(i+1).contains(String.valueOf(c))) {
+				sb.append(c);
+			} else {
+				if(c < s.charAt(i+1)) {
+					sb.append(c);
+				}
+			}
+		}
+
+		return sb.toString();
+	}
+
 	public static void main(String[] args) {
 
-		System.out.println(removeDuplicatesLexicographically("level"));//Expected output : evl
+		System.out.println(removeDuplicatesLexicographically2("level"));//Expected output : evl
+		System.out.println(removeDuplicatesLexicographically2("p"));//Expected output : p
+		System.out.println(removeDuplicatesLexicographically2("pp"));//Expected output : p
+		System.out.println(removeDuplicatesLexicographically2("ppaappaa"));//Expected output : ap
+		System.out.println(removeDuplicatesLexicographically2("character"));//Expected output : chater
+		System.out.println(removeDuplicatesLexicographically2("lexicographically"));//Expected output : excographily
 
 	}
 
-	// Incorrect result
-//	private static String removeDuplicatesLexicographically(String inputString) {
-//
-//		SortedSet set = new TreeSet<Character>();
-//
-//		char[] chArr = inputString.toCharArray();
-//
-//		for (char ch :  chArr){
-//
-//			set.add(ch);
-//		}
-//		StringBuffer sb = new StringBuffer();
-//
-//		set.forEach(c -> sb.append(c));
-//
-//		return sb.toString();
-//	}
 }

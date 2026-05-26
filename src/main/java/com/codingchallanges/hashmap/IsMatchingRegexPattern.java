@@ -1,4 +1,4 @@
-package com.codingchallanges.hashtable;
+package com.codingchallanges.hashmap;
 
 /*
 Asked in Caterpillar interview on Nov 21, 2024

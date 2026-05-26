@@ -1,7 +1,7 @@
 package com.codingchallanges;
 
 
-import com.codingchallanges.hashtable.PatternBuilderXiaoPingHuynh;
+import com.codingchallanges.hashmap.PatternBuilderXiaoPingHuynh;
 import org.junit.jupiter.api.Test;
 
 class PatternBuilderXiaoPingHuynhTest {

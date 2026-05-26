@@ -92,11 +92,11 @@ public class MaxRAMUtilization {
 
 		List<Job> jobs = new ArrayList<>();
 		jobs.add(new Job(1, 0, 2));
-		jobs.add(new Job(1, 1, 4));
-		jobs.add(new Job(1, 1, 3));
+		jobs.add(new Job(2, 1, 4));
+		jobs.add(new Job(3, 1, 3));
 		jobs.add(new Job(4, 5, 6));
 
-		System.out.print(maxRAMUtilization(jobs));
+		System.out.println(maxRAMUtilization(jobs));
 
 	}
 

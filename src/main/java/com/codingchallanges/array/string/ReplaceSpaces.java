@@ -64,14 +64,27 @@ public class ReplaceSpaces {
 			}
 		}
 	}
+
+	public static String replaceSpacesStringBuilder(String s) {
+
+		StringBuilder sb = new StringBuilder();
+		char last = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == ' ') {
+				if(last != ' ') sb.append("%20");
+			} else {
+				sb.append(s.charAt(i));
+			}
+			last = s.charAt(i);
+		}
+		if(last == ' ') sb.delete(sb.length() - 3, sb.length()); // remove the last "%20"
+		return sb.toString();
+	}
 	
 	public static void main(String[] args) {
 
-		String s = " This is a nice day          ";
-//		String s = "     This is a nice day      ";//work on this
-
-		System.out.println(replaceSpaces(s));
-		System.out.println(replaceSpaces(s, 18));
+		System.out.println(replaceSpaces(" This is a nice day          ")); // Output: %20This%20is%20a%20nice%20day
+//		System.out.println(replaceSpaces("     This is a nice day      ", 18)); //work on this
 	}
 
 }

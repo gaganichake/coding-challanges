@@ -1,6 +1,6 @@
 package com.codingchallanges;
 
-import com.codingchallanges.hashtable.PatternBuilderJusticeCalderon;
+import com.codingchallanges.hashmap.PatternBuilderJusticeCalderon;
 import org.junit.jupiter.api.Test;
 
 public class PatternBuilderJusticeCalderonTest {

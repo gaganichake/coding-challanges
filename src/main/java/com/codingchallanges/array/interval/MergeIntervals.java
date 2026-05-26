@@ -54,6 +54,23 @@ public class MergeIntervals {
 		return mergedIntervals.toArray(new int[mergedIntervals.size()][]);
 	}
 
+	// Same logic with Java 8 functional programming
+	public static int[][] mergeFunction(int[][] intervals) {
+
+		if (intervals.length == 0) return new int[0][0];
+
+		Arrays.sort(intervals, (a, b) -> a[0] != b[0] ? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1]));
+
+		return Arrays.stream(intervals).reduce((a, b) -> {
+			if (a[1] >= b[0]) {
+				a[1] = Math.max(a[1], b[1]);
+				return a;
+			} else {
+				return b;
+			}
+		}).map(a -> new int[] {a[0], a[1] }).stream().toArray(int[][]::new);
+	}
+
 	public static void main(String[] args) {
 
 //		int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};// Output: [[1,6],[8,10],[15,18]]

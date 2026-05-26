@@ -1,6 +1,6 @@
 package com.codingchallanges;
 
-import com.codingchallanges.hashtable.PatternBuilderSebastian;
+import com.codingchallanges.hashmap.PatternBuilderSebastian;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.codingchallanges.hashtable;
+package com.codingchallanges.hashmap;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import java.util.Map;
  * Returns the indices of the prices of the two flavors they buy, sorted ascending
  * <p>
  * Example. m = 6, cost = [1, 2, 3, 4, 5]
- * The two flavors that cost  and  meet the criteria. Using -based indexing, they are at indices  1 and 4 .]
+ * The two flavors that cost  and  meet the criteria. Using -based indexing, they are at indices  0 and 4 .]
  * <p>
  * https://www.youtube.com/watch?v=Ifwf3DBN1sc
  * <p>
@@ -120,11 +120,12 @@ public class IceCreamParlor {
 
     public static void main(String[] args) {
 
-		int[] menu = { 6, 1, 7, 4, 2 };
-//        int[] menu = {1, 5, 4, 5, 2};
+//		int[] menu = { 6, 1, 7, 4, 2 };
+//      int[] menu = {1, 5, 4, 5, 2};
+        int[] menu = {1, 2, 3, 4, 5};
 
-        System.out.println(Arrays.toString(iceCreamParlor(menu, 10)));
-        System.out.println(Arrays.toString(iceCreamParlor2(menu, 10)));
+        System.out.println(Arrays.toString(iceCreamParlor(menu, 6)));
+        System.out.println(Arrays.toString(iceCreamParlor2(menu, 6)));
 
     }
 }

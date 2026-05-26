@@ -1,4 +1,4 @@
-package com.codingchallanges.hashtable;
+package com.codingchallanges.hashmap;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -103,7 +103,6 @@ public class SockMerchant {
 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println(sockMerchant(new int[] {1, 2, 1, 2, 3, 2}));
 		System.out.println(sockMerchant(new int[] {5, 1, 8, 1, 5, 1}));
 	}

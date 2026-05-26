@@ -1,6 +1,6 @@
 package com.codingchallanges;
 
-import com.codingchallanges.hashtable.PatternBuilderKimberlyMcLeod;
+import com.codingchallanges.hashmap.PatternBuilderKimberlyMcLeod;
 import org.junit.jupiter.api.Test;
 
 public class PatternBuilderKimberlyMcLeodTest {

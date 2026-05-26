@@ -1,55 +1,45 @@
 package com.codingchallanges;
 
-import java.util.Arrays;
 
-/*
- * findLongestSubarrayBySum
- *
- * https://app.codesignal.com/interview-practice/task/izLStwkDr5sMS9CEm/description
- *
- * You have an unsorted array arr of non-negative integers and a number s. Find the longest
- * contiguous subarray in arr that has a sum equal to s. Return two integers that represent
- * its inclusive bounds. If there are several possible answers, return the one with the
- * smallest left bound. If there are no answers, return [-1].
- *
- * Your answer should be 1-based, meaning that the first position of the array is 1 instead
- * of 0.
- */
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Solution {
 
     public static void main(String[] args) {
 
-        int[] inputArr = {2, 0, 1, 3, 2, 1, 2, 3};
-        System.out.println(Arrays.toString(findLongestSubarrayBySumV3(5, inputArr)));
+		String[] words = {"a","ab","abc"};
+//		String[] words = {"a","ab","abc","a"};
+//		String[] words = {"a","b","abc"};
+//		String[] words = {"a","ba","abcd"};
+//		String[] words = {"word","world","row"};
+//		String[] words = {"apple","app"};
+//		String[] words = {"app", "apple"};
+//        String[] words = {"abcdef", "gh"};
+
+        System.out.println(isSortedLexicographically(words));
+
     }
 
-    static int[] findLongestSubarrayBySumV3(int s, int[] arr)
-    {
-       int[] result = {-1};
-       int left = -1; int right = -1;
+    public static boolean isSortedLexicographically(String[] words) {
 
-       int[] prefixSum = new int[arr.length+1];
-        prefixSum[0] = 0;
+        if(words.length < 2) return true;
 
-        for (int i = 0; i < arr.length; i++) {
+        for(int i = 0; i < words.length - 1; i++) {
 
-            prefixSum[i + 1] = prefixSum[i] + arr[i];
-
-            if(s == prefixSum[i+1]){
-                left = 0;
-                right = i;
-            } else if(s == prefixSum[i + 1] - prefixSum[i]){
-                left = i;
-                right = i+1;
-            }
-
-        }
-        System.out.println(Arrays.toString(prefixSum));
-        if(left > -1){
-            result = new int[]{left, right};
+            if(!compare(words[i], words[i+1]))
+                return false;
         }
 
-        return result;
+        return true;
     }
+
+    private static boolean compare(String string1, String string2) {
+
+        String[] words = {string1, string2};
+        Arrays.sort(words);
+        return words[0].equals(words[1]);
+    }
+
 }
 
