@@ -1,5 +1,7 @@
 package com.codingchallanges.array.string;
 
+import java.util.Arrays;
+
 /**
 Given a String and Array of Integer, Insert comma to the string based on the Array.
  * <p>
@@ -11,25 +13,47 @@ Output: "AS12,3-asd,mn,as-123lasd,kn,w13==1,21232139,sdmjlasd12321llall123213213
  * <p>
 Another Example:
  * <p>
-   String = "AS123-asdmnas-123lasdknw13==121232"
+   String = "AS123-asdmnas-123lasdknw13==21232139"
    int [] = [4, 5, 2, 10, 2, 6, 8]
  * <p>
-Output: "AS12,3-asd,mn,as-123lasd,kn,w13==1,21232"
+Output: "AS12,3-asd,mn,as-123lasd,kn,w13==1,21232139,"
  */
 public class InsertComma {
 
     public static void main(String[] args) {
 
-        System.out.println(solution("AS123-asdmnas-123lasdknw13==121232139sdmjlasd12321llall123213213klasdlasdsadas",
-                new int[]{4, 5, 2, 10, 2, 6, 8}));
-        System.out.println(solution("AS123-asdmnas-123lasdknw13==121232",
+//        System.out.println(solution2("AS123-asdmnas-123lasdknw13==121232139sdmjlasd12321llall123213213klasdlasdsadas",
+//                new int[]{4, 5, 2, 10, 2, 6, 8}));
+        System.out.println(solution2("AS123-asdmnas-123lasdknw13==21232139",
                 new int[]{4, 5, 2, 10, 2, 6, 8}));
 
+    }
+    private static String solution2(String str, int[] offsets) {
+
+        char[] src = str.toCharArray();
+        char[] dest = new char[str.length()+offsets.length];
+
+        int totalOffset = 0;
+
+        for (int i = 0; i < offsets.length; i++) {
+            System.out.println(totalOffset + ", " + (totalOffset+i) + ", " + (totalOffset + offsets[i]));
+            System.arraycopy(src, totalOffset, dest, totalOffset+i, totalOffset + offsets[i]);
+
+            totalOffset = totalOffset + offsets[i];
+            dest[totalOffset + i] = ',';
+            System.out.println(new String(dest));
+        }
+        System.out.println(totalOffset + ", " + (totalOffset+offsets.length) + ", " + (str.length() - totalOffset));
+        if(totalOffset < src.length) {
+            System.arraycopy(src, totalOffset, dest, totalOffset+offsets.length, str.length() - totalOffset);
+        }
+
+        return new String(dest);
     }
 
     private static String solution(String str, int[] offsets) {
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < offsets.length; i++){
 

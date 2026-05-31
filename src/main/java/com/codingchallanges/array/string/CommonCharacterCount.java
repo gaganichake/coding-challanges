@@ -5,36 +5,38 @@ import java.util.Map;
 
 public class CommonCharacterCount {
 
-    int getCommonCharacterCount(String s1, String s2) {
+    static int getCommonCharacterCount(String s1, String s2) {
 
-        if(null == s1 || null == s2 || s1.isEmpty() || s1.isEmpty()) {
+        if(null == s1 || null == s2 || s1.isEmpty() || s2.isEmpty()) {
             return 0;
         }
 
-        char[] s2CharArray = s2.toCharArray();
-        Map<String, Integer> myMap = new HashMap<>();
+        char[] s1Array = s1.toCharArray();
+        Map<Character, Integer> mapS1 = new HashMap<>();
 
-        for(int i = 0; i < s2CharArray.length; i++) {
-            if(!myMap.containsKey(String.valueOf(s2CharArray[i]))) {
-                myMap.put(String.valueOf(s2CharArray[i]), 1);
-            } else {
-                myMap.put(String.valueOf(s2CharArray[i]), myMap.get(String.valueOf(s2CharArray[i])) + 1);
-            }
+        for (char ch : s1Array) {
+            mapS1.put(ch, mapS1.getOrDefault(ch, 0) + 1);
         }
 
         int counter = 0;
 
-        char[] s1CharArray = s1.toCharArray();
+        char[] s2Array = s2.toCharArray();
 
-        for(int j = 0; j < s1CharArray.length; j++) {
-            if(myMap.containsKey(String.valueOf(s1CharArray[j]))
-                    && myMap.get(String.valueOf(s1CharArray[j])) > 0) {
+        for (char ch : s2Array) {
+
+            if (mapS1.containsKey(ch) && mapS1.get(ch) > 0) {
                 counter++;
-                myMap.put(String.valueOf(s1CharArray[j]),
-                        myMap.get(String.valueOf(s1CharArray[j])) - 1);
+                mapS1.put(ch, mapS1.get(ch) - 1);
             }
         }
 
         return counter;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(getCommonCharacterCount("You need to do more practice",
+                "Practice makes you perfect"));
+
     }
 }

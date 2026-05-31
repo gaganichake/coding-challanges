@@ -20,33 +20,49 @@ public class MatrixElementsSum {
 	//It is very easy if I just traverse column wise instead of row wise.
 	private static int matrixElementsSum(int[][] matrix) {
 
-	    int sum = 0;
-		int length = matrix[0].length;
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+		int sum = 0;
 
-        for(int colIndex = 0; colIndex < length; colIndex++){
+		for (int c = 0; c < cols; c++) {
 
-			for (int[] row : matrix) {
+			for (int r = 0; r < rows; r++) {
 
-				if (row[colIndex] != 0)
-					sum += row[colIndex];
-				else
+				int cost = matrix[r][c];
+				if (cost > 0) {
+					sum += cost;
+				} else  {
 					break;
+				}
 			}
-	    }
+		}
 
-	    return sum;
+		return sum;
 	}
 
 	public static void main(String[] args) {
-		int[][] matrix_1 = {{0, 1, 1, 2},
-							{0, 5, 0, 0},
-							{2, 0, 3, 3}};
+
+//		index layout of a 3 x 3 matrix
+//		 {
+//				{00, 01, 02, 03},
+//				{10, 11, 12, 13},
+//				{20, 21, 22, 23},
+//				{30, 31, 32, 33}
+//		}
+
+		int[][] matrix_1 = {
+				{0, 1, 1, 2},
+				{0, 5, 0, 0},
+				{2, 0, 3, 3}
+		};
 //		Expected Output: 1 + 5 + 1 + 2 = 9
 		System.out.println(matrixElementsSum(matrix_1));
 
-		int[][] matrix_2 = {{1, 1, 1, 0},
-							{0, 5, 0, 1},
-							{2, 1, 3, 10}};
+		int[][] matrix_2 = {
+				{1, 1, 1, 0},
+				{0, 5, 0, 1},
+				{2, 1, 3, 10}
+		};
 		//Expected Output: 1 + 1 + 1 + 5 + 1 = 9
 		System.out.println(matrixElementsSum(matrix_2));
 	}

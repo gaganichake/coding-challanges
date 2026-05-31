@@ -1,17 +1,17 @@
 package com.codingchallanges.hashmap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /*
  * areFollowingPatterns
  *
  * https://app.codesignal.com/interview-practice/task/3PcnSKuRkqzp8F6BN/description
  *
- * Given an array strings, determine whether it follows the sequence given in the patterns array. In other words, there should be no i and j for which strings[i] = strings[j] and patterns[i] ≠ patterns[j] or for which strings[i] ≠ strings[j] and patterns[i] = patterns[j]
+ * Given an array strings, determine whether it follows the sequence given in the patterns array.
+ * In other words, there should be no i and j for which strings[i] = strings[j] and patterns[i] ≠ patterns[j]
+ * or for which strings[i] ≠ strings[j] and patterns[i] = patterns[j]
  *
  * Example
  * For strings = ["cat", "dog", "dog"] and patterns = ["a", "b", "b"], the output should be
@@ -26,8 +26,8 @@ import java.util.stream.Collectors;
 public class AreFollowingPatterns {
 
     public static void main(String[] args) {
-        System.out.println(solution1(new String[]{"cat", "dog", "dog"}, new String[] {"a", "b", "b"})); // true
-        System.out.println(solution1(new String[]{"cat", "dog", "doggy"}, new String[] {"a", "b", "b"})); // false
+        System.out.println(areFollowingPatternsHashMap(new String[]{"cat", "dog", "dog"}, new String[] {"a", "b", "b"})); // true
+        System.out.println(areFollowingPatternsHashMap(new String[]{"cat", "dog", "doggy"}, new String[] {"a", "b", "b"})); // false
     }
 
     // This is a working solution. Passed all tests. However, it does not use HashTable. Time complexity: O(n^2)
@@ -49,11 +49,11 @@ public class AreFollowingPatterns {
     }
 
     // Solved using HashTable. Time complexity: O(n) +. O(n) = O(n + n) = O(n)
-    static boolean solution1(String[] strings, String[] patterns) {
+    static boolean areFollowingPatternsHashMap(String[] strings, String[] patterns) {
 
         //if(strings.length != patterns.length) return false;//Not required. It is a guaranteed constraint.
 
-        Map<String, List<Integer>> patternMap = covertToHashMap(patterns);
+        Map<String, List<Integer>> patternMap = convertToHashMap(patterns);
         System.out.println("patternMap = " + patternMap);
         // Time: O(n)
         for(List<Integer> list : patternMap.values()){
@@ -63,7 +63,7 @@ public class AreFollowingPatterns {
                 return false;
             }
 
-            // Longer approach, however it exits early, which is good.
+            // Longer approach, however it exits early, however adds O(n x n)
             // Set<String> uniqueStrings = new HashSet<>();
             // for(Integer i :  list) {
             //     if(uniqueStrings.isEmpty()) {
@@ -78,26 +78,26 @@ public class AreFollowingPatterns {
     }
 
     // Time: O(n)
-    private static Map<String, List<Integer>> covertToHashMap(String[] patterns) {
-
-        Map<String, List<Integer>> map = new HashMap<>();
-
-        for (int i = 0; i < patterns.length; i++) {
-
-            String key = patterns[i];
-
-//             map.getOrDefault(key, new ArrayList<>()).add(i);
+//    private static Map<String, List<Integer>> convertToHashMap(String[] patterns) {
 //
-//            if (!map.containsKey(key)) {
-//                map.put(key, new ArrayList<>());
-//            }
-            List list = map.getOrDefault(key, new ArrayList<>());
-            list.add(i);
-            map.put(key, list);
-        }
-        return map;
-    }
+//        Map<String, List<Integer>> map = new HashMap<>();
+//
+//        for (int i = 0; i < patterns.length; i++) {
+//
+//            String key = patterns[i];
+//
+//            List<Integer> list = map.getOrDefault(key, new ArrayList<>());
+//            list.add(i);
+//            map.put(key, list);
+//        }
+//        return map;
+//    }
 
-    
+    // Time: O(n) - Optimized using Java Streams and functional programming
+    private static Map<String, List<Integer>> convertToHashMap(String[] patterns) {
+        return IntStream.range(0, patterns.length)
+                .boxed()
+                .collect(Collectors.groupingBy(i -> patterns[i]));
+    }
 
 }
