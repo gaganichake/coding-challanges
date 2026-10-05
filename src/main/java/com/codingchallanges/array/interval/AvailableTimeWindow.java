@@ -1,5 +1,6 @@
 package com.codingchallanges.array.interval;
 
+import java.util.*;
 /*
 GE Health Care, June 2025
 
@@ -15,8 +16,6 @@ Output -
 [ (13:00, 13:30) ]
  */
 
-import java.util.*;
-
 public class AvailableTimeWindow {
 
     public static void main(String[] args) {
@@ -31,35 +30,59 @@ public class AvailableTimeWindow {
         System.out.println(Arrays.deepToString(availability(persons)));
     }
 
-    // Fix the code to find common time windows where all persons are available
+    // Find common time windows where all persons are available
     private static int[][] availability(List<Person> persons){
 
-        List<int[]> timeSlots = new ArrayList<>();
+
+        List<int[]> timeSlots = new ArrayList<>(); // Minimum size persons.length()
         for (Person person : persons) {
-            timeSlots.addAll(person.timeWindows());
+            timeSlots.addAll(person.timeSlots());
         }
 
         // Sort the time slots by start time
         timeSlots.sort(Comparator.comparingInt((int[] a) -> a[0]).thenComparingInt(a -> a[1]));
 
-        List<int[]> mergedSlots = new ArrayList<>();
+        System.out.println(Arrays.deepToString(timeSlots.toArray()));
+
+        List<int[]> commonSlots = new ArrayList<>();
         int[] currentSlot = timeSlots.get(0);
 
         for (int i = 1; i < timeSlots.size(); i++) {
-            int[] nextSlot = timeSlots.get(i);
-            if (currentSlot[1] >= nextSlot[0]) {
-                currentSlot[1] = Math.max(currentSlot[1], nextSlot[1]);
-            } else {
-                mergedSlots.add(currentSlot);
-                currentSlot = nextSlot;
-            }
-        }
-        mergedSlots.add(currentSlot);
 
-        return mergedSlots.toArray(new int[mergedSlots.size()][]);
+            int[] nextSlot = timeSlots.get(i);
+            if (currentSlot[1] > nextSlot[0]) {
+                currentSlot[0] = nextSlot[0];
+            }
+
+            if(timeSlotAcceptableByAll(currentSlot, persons)){
+                commonSlots.add(currentSlot);
+            }
+
+            currentSlot = nextSlot;
+        }
+
+        return commonSlots.toArray(new int[commonSlots.size()][]);
     }
 
-    public record Person(List<int[]> timeWindows) {
+    private static boolean timeSlotAcceptableByAll(int[] slot, List<Person> persons){
 
+        for(Person person : persons){
+            if(!timeSlotAcceptable(slot, person))
+                return false;
+        }
+        return true;
+    }
+    
+    private static boolean timeSlotAcceptable(int[] slot, Person person){
+
+        for(int[] personSlot : person.timeSlots()){
+            if(slot[0] >= personSlot[0] && slot[1] <= personSlot[1]){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public record Person(List<int[]> timeSlots) {
     }
 }
