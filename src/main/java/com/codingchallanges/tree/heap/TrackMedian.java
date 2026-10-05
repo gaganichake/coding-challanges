@@ -89,8 +89,7 @@ public class TrackMedian {
 
 	public static void main(String[] args) {
 
-		Integer[] a = { 2, 10, 21, 23, 23, 38, 38, 1027892 };
-		List<Integer> arrayList = new ArrayList<>(Arrays.asList(a));// Expanding & unsorted array
+		List<Integer> arrayList = Arrays.asList(2, 10, 21, 23, 23, 38, 38, 1027892);// Expanding & unsorted array
 
 		System.out.println(arrayList);
 

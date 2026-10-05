@@ -26,9 +26,13 @@ import java.util.*;
  *  2. For each sum, it checks if the complement (targetSum - sum) exists in the HashMap.
  *  3. If it does, it retrieves the pairs corresponding to both sums and checks for distinct indices.
  *  4. If valid pairs are found, it returns the four numbers as a list.
+ *
+ *   Also check QuadSumFinder.java for a similar problem with 4 numbers instead of 2.
  */
 
+
 public class QuadSumFinder {
+
     public static List<Integer> findQuadSum(int targetSum, List<Integer> numbers) {
         int length = numbers.size();
         Map<Integer, List<int[]>> sumMap = new HashMap<>();

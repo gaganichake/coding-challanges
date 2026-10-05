@@ -1,27 +1,24 @@
-package com.codingchallanges.tree.binarytree;
+package com.codingchallanges.graph.dfs;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Complete the 'maximumDifference' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts UNWEIGHTED_INTEGER_GRAPH g as parameter.
+ *
+ * For the unweighted graph, <name>:
+ *
+ * 1. The number of nodes is <name>Nodes.
+ * 2. The number of edges is <name>Edges.
+ * 3. An edge exists between <name>From[i] and <name>To[i].
+ *
+ */
 public class MaximumDifference {
 
-    /*
-     * Complete the 'maximumDifference' function below.
-     *
-     * The function is expected to return an INTEGER.
-     * The function accepts UNWEIGHTED_INTEGER_GRAPH g as parameter.
-     *
-     * For the unweighted graph, <name>:
-     *
-     * 1. The number of nodes is <name>Nodes.
-     * 2. The number of edges is <name>Edges.
-     * 3. An edge exists between <name>From[i] and <name>To[i].
-     *
-     */
-
-    // Complete the following function
     public static int maximumDifference(int gNodes, List<Integer> gFrom, List<Integer> gTo) {
-                    // Write your code here
         int result = 0;
 
         // Create a graph using adjacency list

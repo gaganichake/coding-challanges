@@ -11,10 +11,12 @@ If multiple pairs satisfy this condition, choose the one with a lower index of t
 that appears in the array. If no pairs' sum equals target, return an empty list.
 
 Example:
-For the input array arr = [2, 13, 4, 7, 5, 15] and a target target = 9, the output should be [2, 7]
+For the input array arr = [2, 13, 4, 7, 5, 15] and a target = 9, the output should be [2, 7]
 because the sum of these numbers equals 9. [4, 5] is also a valid pair, but it appears later (5 appears after 7).
+
+ Also check QuadSumFinder.java for a similar problem with 4 numbers instead of 2.
  */
-public class QuadrupleSumFinder {
+public class DuoSumFinder {
 
     public int[] solution(int[] arr, int target) {
 
@@ -23,7 +25,7 @@ public class QuadrupleSumFinder {
         for(int i = 0; i < arr.length; i++){
             map.put(arr[i], i);
         }
-        int complement = 0;
+        int complement;
 
         SortedMap<Integer, int[]> sortedMap = new TreeMap<>();;
 
@@ -47,7 +49,7 @@ public class QuadrupleSumFinder {
 
      public static void main(String[] args) {
 
-        QuadrupleSumFinder finder = new QuadrupleSumFinder();
+        DuoSumFinder finder = new DuoSumFinder();
 
         int[] arr = {2, 13, 4, 7, 5, 15};
         int target = 9;

@@ -147,11 +147,11 @@ public class BalancedTreeNode extends TreeNode<Integer> {
         }
 
         if (Objects.equals(node.value, val)) {
-            return true;
+            return true; // root
         } else if (val < node.value) {
-            return find(node.left, val);
+            return find(node.left, val); // left
         } else {
-            return find(node.right, val);
+            return find(node.right, val); // right
         }
 
     }
@@ -273,10 +273,10 @@ public class BalancedTreeNode extends TreeNode<Integer> {
     // DFS - Preorder
     // https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
     public String serialize() {
-        return rserialize(this, "");
+        return serialize(this, "");
     }
 
-    private String rserialize(TreeNode<Integer> root, String s) {
+    private String serialize(TreeNode<Integer> root, String s) {
 
         if (root == null) {
             s += "null,";
@@ -284,8 +284,8 @@ public class BalancedTreeNode extends TreeNode<Integer> {
         }
 
         s += root.value + ",";
-        s = rserialize(root.left, s);
-        s = rserialize(root.right, s);
+        s = serialize(root.left, s);
+        s = serialize(root.right, s);
 
         return s;
     }
@@ -296,10 +296,10 @@ public class BalancedTreeNode extends TreeNode<Integer> {
     public BalancedTreeNode deserialize(String data) {
         String[] arr = data.split(",");
         Queue<String> q = new LinkedList<>(Arrays.asList(arr));
-        return rdeserialize(q);
+        return deserialize(q);
     }
 
-    private BalancedTreeNode rdeserialize(Queue<String> q) {
+    private BalancedTreeNode deserialize(Queue<String> q) {
 
         if (q == null) return null;
 
@@ -309,8 +309,8 @@ public class BalancedTreeNode extends TreeNode<Integer> {
         }
 
         BalancedTreeNode root = new BalancedTreeNode(Integer.valueOf(q.remove()));
-        root.left = rdeserialize(q);
-        root.right = rdeserialize(q);
+        root.left = deserialize(q);
+        root.right = deserialize(q);
 
         return root;
     }

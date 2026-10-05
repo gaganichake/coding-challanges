@@ -6,9 +6,10 @@ public class Print1toNRecursively {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        for (int i = 0; i < t; i++) {
+        System.out.println("Enter 0 to exit.");
+        while(true) {
             int n = in.nextInt();
+            if (n == 0) break;
             printRecursively(n);
             System.out.println();
         }

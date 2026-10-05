@@ -12,7 +12,7 @@ public class SortedArrayToTree {
 
 	public static BalancedTreeNode sortedArrayToBST(int[] nums) {
 		
-		return SortedArrayToTree.sortedArrayToBST(nums, 0, nums.length-1);
+		return sortedArrayToBST(nums, 0, nums.length-1);
 	}
 	
 	// Considering left middle as root
