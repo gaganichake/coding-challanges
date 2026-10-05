@@ -72,7 +72,7 @@ public class AvailableTimeWindow {
         }
         return true;
     }
-    
+
     private static boolean timeSlotAcceptable(int[] slot, Person person){
 
         for(int[] personSlot : person.timeSlots()){
